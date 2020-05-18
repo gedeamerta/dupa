@@ -1,0 +1,109 @@
+/* navbar */
+.navbar {
+    font-family: Roboto;
+    padding: 20px;
+}
+
+.navbar-nav {
+    font-weight: 300;
+}
+
+.contact p {
+  color: white;
+  font-size: 18px;
+}
+
+.contact img  {
+  height: auto;
+  max-width: 6%;
+}
+.card {
+    margin-top: 30px;
+}
+
+/* testimonial */
+h1 {
+    margin-top: 100px;
+}
+
+
+footer {
+    padding: 15px;
+     color: black;
+     background-color: white;
+     font-weight: bold;
+}
+
+/* footer */
+
+footer p {
+    color: #acacac;
+    line-height: 15px;
+    margin: 5px;
+    text-align: center;
+}
+
+.footer-top {
+    background-color: #111;
+    padding: 80px 0;
+}
+
+.segment-one {
+    font-family: Courgette;
+    color: #fff;
+    letter-spacing: 3px;
+    margin: 10px 0;
+}
+
+.segment-two {
+    margin-bottom: 30px;
+}
+
+.segment-two h3 {
+    color: #fff;
+    font-family: Poppins;
+    text-transform: uppercase;
+}
+
+.segment-two h3:before {
+    content: '|';
+    color: #c65039;
+    padding-right: 10px;
+}
+
+.segment-two ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+.segment-two ul li {
+    border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+    line-height: 40px;
+}
+
+.segemnt-two ul li a {
+    text-decoration: none;
+    color: #999;
+}
+
+.segment-three h3 {
+    color: #fff;
+    font-family: Poppins;
+    text-transform: uppercase;
+}
+
+.segment-three h3:before {
+    content: '|';
+    color: #c65039;
+    padding-right: 10px;
+}
+
+.segment-three ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+
+/* desktop */
