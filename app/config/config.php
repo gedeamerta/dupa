@@ -1,5 +1,5 @@
 <?php
-define('BASEURL', 'http://localhost/dupa');
+define('BASEURL', 'http://localhost/dupaSell');
 
 // DB
 define('DB_HOST', 'localhost');
