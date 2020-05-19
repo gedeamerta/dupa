@@ -1,0 +1,167 @@
+
+    <!-- slider -->
+    <div class="uk-position-relative uk-visible-toggle uk-light" tabindex="-1" uk-slideshow="min-height: 300; max-height: 600; animation: push; autoplay: true;">
+
+        <ul class="uk-slideshow-items">
+            <li>
+                <img src="<?= BASEURL; ?>/assets/img/siwa-patung.jpg" alt="" uk-cover>
+                <div class="uk-overlay uk-overlay-primary uk-position-bottom uk-text-center uk-transition-slide-bottom">
+                  <h2 class="uk-margin-remove">Dupa Wangi</h2>
+                  <p class="uk-margin-remove">Geser untuk melihat</p>
+                </div>
+            </li>
+            <li>
+                <img src="<?= BASEURL; ?>/assets/img/siwa-white.jpg" alt="" uk-cover>
+                <div class="uk-overlay uk-overlay-primary uk-position-bottom uk-text-center uk-transition-slide-bottom">
+                  <h2 class="uk-margin-remove">Dupa Wangi</h2>
+                  <p class="uk-margin-remove">Geser untuk melihat</p>
+                </div>
+            </li>
+            <li>
+                <img src="<?= BASEURL; ?>/assets/img/ganesh-patung.jpg" alt="" uk-cover>
+                <div class="uk-overlay uk-overlay-primary uk-position-bottom uk-text-center uk-transition-slide-bottom">
+                  <h2 class="uk-margin-remove">Dupa Wangi</h2>
+                  <p class="uk-margin-remove">Geser untuk melihat</p>
+                </div>
+            </li>
+        </ul>
+
+        <a class="uk-position-center-left uk-position-small uk-hidden-hover" href="#" uk-slidenav-previous uk-slideshow-item="previous"></a>
+        <a class="uk-position-center-right uk-position-small uk-hidden-hover" href="#" uk-slidenav-next uk-slideshow-item="next"></a>
+    </div>
+    <!-- AKIHIR slider -->
+
+    <!-- card -->
+    <h1 class="text-center text-uppercase font-weight-bold"> 🙏🏻 Varian dan Wangi Dupa 🙏🏻</h1>
+    <br><br>
+
+  <div class="col mb-4">
+    <div class="card-deck">
+      <div class="card" uk-scrollspy="cls:uk-animation-slide-left; repeat: true" style="width:100%;">
+        <img src="<?= BASEURL; ?>/assets/img/ganesh-patung.jpg" class="card-img-top" alt="...">
+          <div class="card-body">
+            <h2 class="card-title">Thurgas Dupa</h2>
+            <p class="card-text">Dupa dengan kualitas pilihan, dan varian wangi yang sangat banyak</p>
+            <a href="#" class="btn btn-primary">Cek Lebih Lanjut</a>
+          </div>
+        </div>
+
+        <div class="card" uk-scrollspy="cls:uk-animation-fade; repeat: true" style="width:100%;">
+          <img src="<?= BASEURL; ?>/assets/img/ganesh-patung.jpg" class="card-img-top" alt="...">
+            <div class="card-body">
+              <h2 class="card-title">Thurgas Dupa</h5>
+              <p class="card-text">Dupa dengan kualitas pilihan, dan varian wangi yang sangat banyak</p>
+              <a href="#" class="btn btn-primary">Cek Lebih Lanjut</a>
+            </div>
+          </div>
+
+          <div class="card" uk-scrollspy="cls:uk-animation-slide-right; repeat: true" style="width:100%;">
+            <img src="<?= BASEURL; ?>/assets/img/ganesh-patung.jpg" class="card-img-top" alt="...">
+              <div class="card-body">
+                <h2 class="card-title">Thurgas Dupa</h2>
+                <p class="card-text">Dupa dengan kualitas pilihan, dan varian wangi yang sangat banyak</p>
+                <a href="#" class="btn btn-primary">Cek Lebih Lanjut</a>
+              </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="col mb-4">
+      <div class="card-deck">
+        <div class="card" uk-scrollspy="cls:uk-animation-slide-bottom; delay: 500; repeat: true"  style="width:100%;">
+          <img src="<?= BASEURL; ?>/assets/img/ganesh-patung.jpg" class="card-img-top" alt="...">
+            <div class="card-body">
+              <h2 class="card-title">Thurgas Dupa</h2>
+              <p class="card-text">Dupa dengan kualitas pilihan, dan varian wangi yang sangat banyak</p>
+              <a href="#" class="btn btn-primary">Cek Lebih Lanjut</a>
+            </div>
+          </div>
+
+          <div class="card" uk-scrollspy="cls:uk-animation-slide-bottom; delay: 600; repeat: true"  style="width:100%;">
+            <img src="<?= BASEURL; ?>/assets/img/ganesh-patung.jpg" class="card-img-top" alt="...">
+              <div class="card-body">
+                <h2 class="card-title">Thurgas Dupa</h2>
+                <p class="card-text">Dupa dengan kualitas pilihan, dan varian wangi yang sangat banyak</p>
+                <a href="#" class="btn btn-primary">Cek Lebih Lanjut</a>
+              </div>
+            </div>
+
+            <div class="card" uk-scrollspy="cls:uk-animation-slide-bottom; delay: 700; repeat: true"  style="width:100%;">
+              <img src="<?= BASEURL; ?>/assets/img/ganesh-patung.jpg" class="card-img-top" alt="...">
+                <div class="card-body">
+                  <h2 class="card-title">Thurgas Dupa</h2>
+                  <p class="card-text">Dupa dengan kualitas pilihan, dan varian wangi yang sangat banyak</p>
+                  <a href="#" class="btn btn-primary">Cek Lebih Lanjut</a>
+                </div>
+              </div>
+          </div>
+      </div>
+      <br><br>
+    <!-- end card -->
+
+    <!--start-card-side  -->
+    <h1 class="text-center text-uppercase font-weight-bold">Toko Kami 🖐🏻</h1>
+    <br><br><br>
+    <div class="uk-card uk-card-default uk-grid-collapse uk-child-width-1-2@s uk-margin" uk-scrollspy="cls:uk-animation-slide-left; delay: 300; repeat: true" uk-grid>
+      <div class="uk-card-media-left uk-cover-container">
+          <img src="<?= BASEURL; ?>/assets/img/siwa-white.jpg" alt="" uk-cover>
+          <canvas width="600" height="400"></canvas>
+      </div>
+      <div>
+          <div class="uk-card-body">
+              <h2 class="uk-card-title">Ersania Dupa Harum</h2>
+              <h4>Menjual Dupa Tawar mulai dari kualitas biasa hingga Dupa herbal, mulai dari warna natural hingga berwarna. Kualitas dupa halus, tidak kasar atau gampang pecah, mulai dari abu panas hingga Abu dingin. Selain itu tentu saja kita menjual Dupa kemasan dengan berbagai macam kemasan hingga renteng dengan aroma dan kualitas terjamin.</h4>
+          </div>
+      </div>
+  </div>
+
+  <div class="uk-card uk-card-default uk-grid-collapse uk-child-width-1-2@s uk-margin" uk-scrollspy="cls:uk-animation-slide-right; delay: 300; repeat: true" uk-grid>
+      <div class="uk-flex-last@s uk-card-media-right uk-cover-container">
+          <img src="<?= BASEURL; ?>/assets/img/ganesh-card.jpg" alt="" uk-cover>
+          <canvas width="600" height="400"></canvas>
+      </div>
+      <div>
+          <div class="uk-card-body">
+              <h2 class="uk-card-title">Cara Membuat Dupa</h2>
+              <h4>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</h4>
+          </div>
+      </div>
+  </div>
+    <!-- end-card-side -->
+
+    <!-- footer -->
+        <div class="footer-top">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-4 col-sm4 text-center segment-one">
+                        <h2>Ersania Dupa Harum</h2>
+                    </div>
+                    <div class="col-md-4 col-sm4 segment-two">
+                        <h3>Quick Acces</h3>
+                        <ul>
+                            <li><a href="beranda.html">Home</a></li>
+                            <li><a href="dupa.html">Dupa</a></li>
+                            <li><a href="#">Pembuatan</a></li>
+                            <li><a href="#">Kegunaan</a></li>
+                        </ul>
+                    </div>
+                    <div class="contact col-md-4 col-sm-4 segment-three">
+                          <h3>Contact Us</h3>
+                          <ul>
+                            <p><img src="<?= BASEURL; ?>/img/whatsapp.png"  alt=""> 087 762 513 434 </p>
+                            <p><img src="<?= BASEURL; ?>/img/instagram.png"  alt=""> @example</p>
+                            <p><img src="<?= BASEURL; ?>/assets/img/facebook.png"  alt=""> example</p>
+                            <p><img src="<?= BASEURL; ?>/assets/img/gmail.png"  alt=""> example@gmail.com</p>
+                            <p><img src="<?= BASEURL; ?>/assets/img/signs.png" alt=""> Air Sanih, Buleleng-Bali</p>
+                          </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    <!-- akhir footer -->
+
+  <!-- Footer-Start -->
+    <footer>
+      <p>Ersania Dupa Harum &#169; 2020, Raditya Satriawan & Gede Amerta</p>
+    </footer>
+  <!-- Footer-End -->
