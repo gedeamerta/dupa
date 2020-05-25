@@ -9,10 +9,10 @@
                     <div class="col-md-4 col-sm4 segment-two">
                         <h3>Quick Acces</h3>
                         <ul>
-                            <li><a href="beranda.html">Home</a></li>
-                            <li><a href="dupa.html">Dupa</a></li>
-                            <li><a href="#">Pembuatan</a></li>
+                            <li><a href="<?= BASEURL; ?>/home/index">Home</a></li>
+                            <li><a href="<?= BASEURL; ?>/home/about">Tentang Kami</a></li>
                             <li><a href="#">Kegunaan</a></li>
+                            <li><a href="<?= BASEURL; ?>/home/pembuatan">Pembuatan</a></li>
                         </ul>
                     </div>
                     <div class="contact col-md-4 col-sm-4 segment-three">

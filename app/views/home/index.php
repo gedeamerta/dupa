@@ -1,4 +1,3 @@
-
     <!-- slider -->
     <div class="uk-position-relative uk-visible-toggle uk-light" tabindex="-1" uk-slideshow="min-height: 300; max-height: 600; animation: push; autoplay: true;">
 
@@ -42,7 +41,7 @@
           <div class="card-body">
             <h2 class="card-title">Thurgas Dupa</h2>
             <p class="card-text">Dupa dengan kualitas pilihan, dan varian wangi yang sangat banyak</p>
-            <a href="#" class="btn btn-primary">Cek Lebih Lanjut</a>
+            <a href="#" class="btn btn-secondary">Cek Lebih Lanjut</a>
           </div>
         </div>
 
@@ -51,7 +50,7 @@
             <div class="card-body">
               <h2 class="card-title">Thurgas Dupa</h5>
               <p class="card-text">Dupa dengan kualitas pilihan, dan varian wangi yang sangat banyak</p>
-              <a href="#" class="btn btn-primary">Cek Lebih Lanjut</a>
+              <a href="#" class="btn btn-secondary">Cek Lebih Lanjut</a>
             </div>
           </div>
 
@@ -60,7 +59,7 @@
               <div class="card-body">
                 <h2 class="card-title">Thurgas Dupa</h2>
                 <p class="card-text">Dupa dengan kualitas pilihan, dan varian wangi yang sangat banyak</p>
-                <a href="#" class="btn btn-primary">Cek Lebih Lanjut</a>
+                <a href="#" class="btn btn-secondary">Cek Lebih Lanjut</a>
               </div>
             </div>
         </div>
@@ -73,7 +72,7 @@
             <div class="card-body">
               <h2 class="card-title">Thurgas Dupa</h2>
               <p class="card-text">Dupa dengan kualitas pilihan, dan varian wangi yang sangat banyak</p>
-              <a href="#" class="btn btn-primary">Cek Lebih Lanjut</a>
+              <a href="#" class="btn btn-secondary">Cek Lebih Lanjut</a>
             </div>
           </div>
 
@@ -82,7 +81,7 @@
               <div class="card-body">
                 <h2 class="card-title">Thurgas Dupa</h2>
                 <p class="card-text">Dupa dengan kualitas pilihan, dan varian wangi yang sangat banyak</p>
-                <a href="#" class="btn btn-primary">Cek Lebih Lanjut</a>
+                <a href="#" class="btn btn-secondary">Cek Lebih Lanjut</a>
               </div>
             </div>
 
@@ -91,7 +90,7 @@
                 <div class="card-body">
                   <h2 class="card-title">Thurgas Dupa</h2>
                   <p class="card-text">Dupa dengan kualitas pilihan, dan varian wangi yang sangat banyak</p>
-                  <a href="#" class="btn btn-primary">Cek Lebih Lanjut</a>
+                  <a href="#" class="btn btn-secondary">Cek Lebih Lanjut</a>
                 </div>
               </div>
           </div>

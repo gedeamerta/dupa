@@ -40,19 +40,7 @@
           <div class="collapse navbar-collapse" id="navbarNavDropdown">
               <ul class="navbar-nav ml-auto">
                   <li class="nav-item">
-                    <a class="nav-link text-light" href="<?= BASEURL; ?>/home/index">Beranda<span class="sr-only">(current)</span></a>
-                  </li>
-                  <li class="nav-item">
-                    <a class="nav-link text-light" href="<?= BASEURL; ?>/home/about">Tentang Kami</a>
-                  </li>
-                  <li class="nav-item">
-                    <a class="nav-link text-light" href="<?= BASEURL; ?>/home/dupa">Dupa</a>
-                  </li>
-                  <li class="nav-item">
-                    <a class="nav-link text-light" href="#">Kegunaan</a>
-                  </li>
-                  <li class="nav-item">
-                    <a class="nav-link text-light" href="<?= BASEURL; ?>/home/pembuatan">Pembuatan</a>
+                    <a class="nav-link text-light" href="<?= BASEURL; ?>/admin/dashboard">Dupa List<span class="sr-only">(current)</span></a>
                   </li>
               </ul>
           </div>
