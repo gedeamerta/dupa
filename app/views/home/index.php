@@ -5,21 +5,21 @@
             <li>
                 <img src="<?= BASEURL; ?>/assets/img/siwa-patung.jpg" alt="" uk-cover>
                 <div class="uk-overlay uk-overlay-primary uk-position-bottom uk-text-center uk-transition-slide-bottom">
-                  <h2 class="uk-margin-remove">Dupa Wangi</h2>
+                  <h2 class="uk-margin-remove">🕉 Ersania Dupa Harum</h2>
                   <p class="uk-margin-remove">Geser untuk melihat</p>
                 </div>
             </li>
             <li>
                 <img src="<?= BASEURL; ?>/assets/img/siwa-white.jpg" alt="" uk-cover>
                 <div class="uk-overlay uk-overlay-primary uk-position-bottom uk-text-center uk-transition-slide-bottom">
-                  <h2 class="uk-margin-remove">Dupa Wangi</h2>
+                  <h2 class="uk-margin-remove">🕉 Ersania Dupa Harum</h2>
                   <p class="uk-margin-remove">Geser untuk melihat</p>
                 </div>
             </li>
             <li>
                 <img src="<?= BASEURL; ?>/assets/img/ganesh-patung.jpg" alt="" uk-cover>
                 <div class="uk-overlay uk-overlay-primary uk-position-bottom uk-text-center uk-transition-slide-bottom">
-                  <h2 class="uk-margin-remove">Dupa Wangi</h2>
+                  <h2 class="uk-margin-remove">🕉 Ersania Dupa Harum</h2>
                   <p class="uk-margin-remove">Geser untuk melihat</p>
                 </div>
             </li>
@@ -34,67 +34,20 @@
     <h1 class="text-center text-uppercase font-weight-bold"> 🙏🏻 Varian dan Wangi Dupa 🙏🏻</h1>
     <br><br>
 
+  <?php foreach ($data['dupa'] as $dupa) : ?>
   <div class="col mb-4">
     <div class="card-deck">
       <div class="card" uk-scrollspy="cls:uk-animation-slide-left; repeat: true" style="width:100%;">
         <img src="<?= BASEURL; ?>/assets/img/ganesh-patung.jpg" class="card-img-top" alt="...">
           <div class="card-body">
-            <h2 class="card-title">Thurgas Dupa</h2>
-            <p class="card-text">Dupa dengan kualitas pilihan, dan varian wangi yang sangat banyak</p>
-            <a href="#" class="btn btn-secondary">Cek Lebih Lanjut</a>
+            <h2 class="card-title"><?= $dupa['nama_dupa']; ?></h2>
+            <p class="card-text"><?= $dupa['deskripsi']; ?></p>
+            <a href="<?= BASEURL; ?>/home/dupa/<?= $dupa['id']; ?>" class="btn btn-secondary">Cek Lebih Lanjut</a>
           </div>
         </div>
-
-        <div class="card" uk-scrollspy="cls:uk-animation-fade; repeat: true" style="width:100%;">
-          <img src="<?= BASEURL; ?>/assets/img/ganesh-patung.jpg" class="card-img-top" alt="...">
-            <div class="card-body">
-              <h2 class="card-title">Thurgas Dupa</h5>
-              <p class="card-text">Dupa dengan kualitas pilihan, dan varian wangi yang sangat banyak</p>
-              <a href="#" class="btn btn-secondary">Cek Lebih Lanjut</a>
-            </div>
-          </div>
-
-          <div class="card" uk-scrollspy="cls:uk-animation-slide-right; repeat: true" style="width:100%;">
-            <img src="<?= BASEURL; ?>/assets/img/ganesh-patung.jpg" class="card-img-top" alt="...">
-              <div class="card-body">
-                <h2 class="card-title">Thurgas Dupa</h2>
-                <p class="card-text">Dupa dengan kualitas pilihan, dan varian wangi yang sangat banyak</p>
-                <a href="#" class="btn btn-secondary">Cek Lebih Lanjut</a>
-              </div>
-            </div>
-        </div>
-    </div>
-
-    <div class="col mb-4">
-      <div class="card-deck">
-        <div class="card" uk-scrollspy="cls:uk-animation-slide-bottom; delay: 500; repeat: true"  style="width:100%;">
-          <img src="<?= BASEURL; ?>/assets/img/ganesh-patung.jpg" class="card-img-top" alt="...">
-            <div class="card-body">
-              <h2 class="card-title">Thurgas Dupa</h2>
-              <p class="card-text">Dupa dengan kualitas pilihan, dan varian wangi yang sangat banyak</p>
-              <a href="#" class="btn btn-secondary">Cek Lebih Lanjut</a>
-            </div>
-          </div>
-
-          <div class="card" uk-scrollspy="cls:uk-animation-slide-bottom; delay: 600; repeat: true"  style="width:100%;">
-            <img src="<?= BASEURL; ?>/assets/img/ganesh-patung.jpg" class="card-img-top" alt="...">
-              <div class="card-body">
-                <h2 class="card-title">Thurgas Dupa</h2>
-                <p class="card-text">Dupa dengan kualitas pilihan, dan varian wangi yang sangat banyak</p>
-                <a href="#" class="btn btn-secondary">Cek Lebih Lanjut</a>
-              </div>
-            </div>
-
-            <div class="card" uk-scrollspy="cls:uk-animation-slide-bottom; delay: 700; repeat: true"  style="width:100%;">
-              <img src="<?= BASEURL; ?>/assets/img/ganesh-patung.jpg" class="card-img-top" alt="...">
-                <div class="card-body">
-                  <h2 class="card-title">Thurgas Dupa</h2>
-                  <p class="card-text">Dupa dengan kualitas pilihan, dan varian wangi yang sangat banyak</p>
-                  <a href="#" class="btn btn-secondary">Cek Lebih Lanjut</a>
-                </div>
-              </div>
-          </div>
       </div>
+  </div>
+  <?php endforeach; ?>
       <br><br>
     <!-- end card -->
 

@@ -46,9 +46,6 @@
                     <a class="nav-link text-light" href="<?= BASEURL; ?>/home/about">Tentang Kami</a>
                   </li>
                   <li class="nav-item">
-                    <a class="nav-link text-light" href="<?= BASEURL; ?>/home/dupa">Dupa</a>
-                  </li>
-                  <li class="nav-item">
                     <a class="nav-link text-light" href="#">Kegunaan</a>
                   </li>
                   <li class="nav-item">

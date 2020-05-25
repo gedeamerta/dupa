@@ -26,6 +26,10 @@
                     <input class="uk-input" type="number" name="harga_dupa" value="" id="nama"  placeholder="Rp. Harga">
                 </div>
 
+                <div class="uk-inline uk-width-1-2@s">
+                    <input class="uk-input" type="text" name="deskripsi" value="" id="nama"  placeholder="Deskripsi Produk">
+                </div>
+
                 <p class="uk-text-right tombolSubmit">
                   <button style="margin-right: 10px;" class="uk-button uk-button-default uk-modal-close" type="button">Cancel</button>
                   <button class="uk-button uk-button-primary" type="submit">Save</button>
@@ -34,14 +38,17 @@
           </form>
         </div>
       </div>
-  <?php foreach ($data['dupa'] as $dupa) : ?>
-      <ul class="uk-list uk-list-striped uk-uppercase">
-        <li>
-          <?= $dupa['nama_dupa']; ?><br>
-          Rp. <?= $dupa['harga_dupa']; ?>
-          <a href="<?= BASEURL; ?>/admin/hapus/<?= $dupa['id']; ?>" class="uk-button uk-button-danger uk-float-right uk-margin-left" onclick="return confirm('yakin ?')">Hapus</a>
-          <a href="<?= BASEURL; ?>/admin/ubah/<?= $dupa['id']; ?>" uk-toggle="target: #formModal" class="uk-button uk-button-secondary uk-float-right uk-margin-left tampilModalUbah" data-id="<?= $dupa['id']; ?>">Ubah</a>
-        </li>
-      </ul>
-  <?php endforeach; ?>
+    <div class="uk-child-width-1-3@m uk-grid-small uk-grid-match" uk-grid>
+      <?php foreach ($data['dupa'] as $dupa) : ?>
+      <div>
+       <div class="uk-card uk-card-default uk-card-body">
+         <h3 class="uk-card-title"><?= $dupa['nama_dupa']; ?><br></h3>
+         <h4>Rp. <?= $dupa['harga_dupa']; ?></h4>
+         <p><?= $dupa['deskripsi']; ?></p>
+         <a href="<?= BASEURL; ?>/admin/hapus/<?= $dupa['id']; ?>" class="uk-button uk-button-danger uk-float-right uk-margin-left" onclick="return confirm('yakin ?')">Hapus</a>
+         <a href="<?= BASEURL; ?>/admin/ubah/<?= $dupa['id']; ?>" uk-toggle="target: #formModal" class="uk-button uk-button-secondary uk-float-right uk-margin-left tampilModalUbah" data-id="<?= $dupa['id']; ?>">Ubah</a>
+       </div>
+     </div>
+   <?php endforeach; ?>
+    </div>
 </div>

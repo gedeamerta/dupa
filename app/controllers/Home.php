@@ -5,8 +5,9 @@ class Home extends Controller
   public function index()
   {
     $data['judul'] = 'Index';
+    $data['dupa'] = $this->model('Admin_model')->getAllDupa();
     $this->view("templates/header", $data);
-    $this->view("home/index");
+    $this->view("home/index", $data);
     $this->view("templates/footer");
   }
 
@@ -26,11 +27,13 @@ class Home extends Controller
     $this->view("templates/footer");
   }
 
-  public function dupa()
+  public function dupa($id)
   {
     $data['judul'] = 'Dupa';
+    $data['dupa_single'] = $this->model('Admin_model')->getDupa($id);
+    $data['dupa'] = $this->model('Admin_model')->getAllDupa();
     $this->view("templates/header", $data);
-    $this->view("home/dupa");
+    $this->view("home/dupa", $data);
     $this->view("templates/footer");
   }
 }

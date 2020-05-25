@@ -88,11 +88,12 @@ class Admin_model
 
   public function tambahDupa($data)
   {
-    $query = 'INSERT INTO dupa (nama_dupa, harga_dupa) VALUES (:nama_dupa, :harga_dupa)';
+    $query = 'INSERT INTO dupa (nama_dupa, harga_dupa, deskripsi) VALUES (:nama_dupa, :harga_dupa, :deskripsi)';
 
     $this->db->query($query);
     $this->db->bind('nama_dupa', $data['nama_dupa']);
     $this->db->bind('harga_dupa', $data['harga_dupa']);
+    $this->db->bind('deskripsi', $data['deskripsi']);
     $this->db->execute();
 
     return $this->db->rowCount();
