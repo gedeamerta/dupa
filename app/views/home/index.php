@@ -34,21 +34,24 @@
     <h1 class="text-center text-uppercase font-weight-bold"> 🙏🏻 Varian dan Wangi Dupa 🙏🏻</h1>
     <br><br>
 
-  <?php foreach ($data['dupa'] as $dupa) : ?>
-  <div class="col mb-4">
-    <div class="card-deck">
-      <div class="card" uk-scrollspy="cls:uk-animation-slide-left; repeat: true" style="width:100%;">
-        <img src="<?= BASEURL; ?>/assets/img/ganesh-patung.jpg" class="card-img-top" alt="...">
-          <div class="card-body">
-            <h2 class="card-title"><?= $dupa['nama_dupa']; ?></h2>
-            <p class="card-text"><?= $dupa['deskripsi']; ?></p>
-            <a href="<?= BASEURL; ?>/home/dupa/<?= $dupa['id']; ?>" class="btn btn-secondary">Cek Lebih Lanjut</a>
+<div class="container">
+  <div class="row">
+    <?php foreach ($data['dupa'] as $dupa) : ?>
+      <div class="col-md-4 mb-4">
+        <div class="card-deck">
+          <div class="card" uk-scrollspy="cls:uk-animation-slide-left; repeat: true" style="width:100%;">
+            <img src="<?= BASEURL; ?>/assets/img/ganesh-patung.jpg" class="card-img-top" alt="...">
+            <div class="card-body">
+              <h2 class="card-title"><?= $dupa['nama_dupa']; ?></h2>
+              <p class="card-text"><?= substr($dupa['deskripsi'],0,29). "..."; ?></p>
+              <a href="<?= BASEURL; ?>/home/dupa/<?= $dupa['id']; ?>" class="btn btn-secondary">Cek Lebih Lanjut</a>
+            </div>
           </div>
         </div>
       </div>
+    <?php endforeach; ?>
   </div>
-  <?php endforeach; ?>
-      <br><br>
+</div>
     <!-- end card -->
 
     <!--start-card-side  -->

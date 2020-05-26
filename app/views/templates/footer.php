@@ -18,11 +18,11 @@
                     <div class="contact col-md-4 col-sm-4 segment-three">
                           <h3>Contact Us</h3>
                           <ul>
-                            <p><img src="<?= BASEURL; ?>/assets/img/whatsapp.png"  alt=""> 087 762 513 434 </p>
-                            <p><img src="<?= BASEURL; ?>/assets/img/instagram.png"  alt=""> @example</p>
-                            <p><img src="<?= BASEURL; ?>/assets/img/facebook.png"  alt=""> example</p>
-                            <p><img src="<?= BASEURL; ?>/assets/img/gmail.png"  alt=""> example@gmail.com</p>
-                            <p><img src="<?= BASEURL; ?>/assets/img/signs.png" alt=""> Air Sanih, Buleleng-Bali</p>
+                            <li><img src="<?= BASEURL; ?>/assets/img/whatsapp.png"  alt=""> 087 762 513 434 </li>
+                            <li><img src="<?= BASEURL; ?>/assets/img/instagram.png"  alt=""> @example</li>
+                            <li><img src="<?= BASEURL; ?>/assets/img/facebook.png"  alt=""> example</li>
+                            <li><img src="<?= BASEURL; ?>/assets/img/gmail.png"  alt=""> example@gmail.com</li>
+                            <li><img src="<?= BASEURL; ?>/assets/img/signs.png" alt=""> Air Sanih, Buleleng-Bali</li>
                           </ul>
                     </div>
                 </div>

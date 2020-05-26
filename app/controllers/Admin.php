@@ -1,12 +1,12 @@
 <?php
 class Admin extends Controller
 {
-  public function index()
+  public function login()
   {
     if (!isset($_POST['login'])) {
       $data['judul'] = 'Login';
       $this->view('templates/header-admin', $data);
-      $this->view('admin/index');
+      $this->view('admin/login');
       $this->view('templates/footer-admin');
     }else {
       if ($this->model('Admin_model')->login($_POST) > 0) {
@@ -27,7 +27,7 @@ class Admin extends Controller
     }else {
       if ($this->model('Admin_model')->register($_POST) > 0) {
         var_dump('sukses');
-        header("Location: ". BASEURL . "/admin/index");
+        header("Location: ". BASEURL . "/admin/login");
       }else {
         Flasher::setErrorRegister('Failed to Register');
         var_dump('gagal');
@@ -36,24 +36,28 @@ class Admin extends Controller
     }
   }
 
-  public function dashboard()
+  public function index()
   {
-    $data['judul'] = 'Dashboard';
-    $data['dupa'] = $this->model('Admin_model')->getAllDupa();
-    $this->view("templates/header-dashboard-admin", $data);
-    $this->view("admin/dashboard", $data);
-    $this->view("templates/footer-admin");
+    if (!isset($_SESSION['login'])) {
+      header("Location: ". BASEURL . "/admin/login");
+    }else {
+      $data['judul'] = 'Dashboard';
+      $data['dupa'] = $this->model('Admin_model')->getAllDupa();
+      $this->view("templates/header-dashboard-admin", $data);
+      $this->view("admin/index", $data);
+      $this->view("templates/footer-admin");
+    }
   }
 
   public function tambah()
   {
     if ($this->model('Admin_model')->tambahDupa($_POST) > 0) {
       Flasher::setFlash('berhasil', 'ditambahkan', 'success');
-      header('Location: '. BASEURL . '/admin/dashboard');
+      header('Location: '. BASEURL . '/admin/index');
       exit;
     }else {
       Flasher::setFlash('gagal', 'ditambahkan', 'danger');
-      header('Location: '. BASEURL . '/admin/dashboard');
+      header('Location: '. BASEURL . '/admin/index');
       exit;
     }
   }
@@ -62,11 +66,11 @@ class Admin extends Controller
   {
     if ($this->model('Admin_model')->hapusDupa($id) > 0) {
       Flasher::setFlash('berhasil', 'dihapus', 'success');
-      header('Location: '. BASEURL . '/admin/dashboard');
+      header('Location: '. BASEURL . '/admin/index');
       exit;
     }else {
       Flasher::setFlash('gagal', 'dihapus', 'danger');
-      header('Location: '. BASEURL . '/admin/dashboard');
+      header('Location: '. BASEURL . '/admin/index');
       exit;
     }
   }
@@ -76,7 +80,7 @@ class Admin extends Controller
     $data['judul'] = 'Daftar Siswa';
     $data['dupa'] = $this->model('Admin_model')->cariDupa();
     $this->view("templates/header-dashboard-admin", $data);
-    $this->view("admin/dashboard", $data);
+    $this->view("admin/index", $data);
     $this->view("templates/footer-admin");
   }
 

@@ -4,6 +4,7 @@
       <section>
           <img src="<?= BASEURL; ?>/assets/img/ganesh-card.jpg"  width="700px" class="featured-image" alt="">
           <h1><?= $data['dupa_single']['nama_dupa']; ?></h1>
+          <h3>Harga : Rp. <?= $data['dupa_single']['harga_dupa']; ?></h3>
           <p>
             <?= $data['dupa_single']['deskripsi']; ?>
           </p>
@@ -11,12 +12,12 @@
     </article>
   </div>
 
-<?php foreach ($data['dupa'] as $dupa) : ?>
   <aside>
     <article class="profile card">
       <header>
         <div class="kategori-list">
           <h3>Jenis Dupa Lainnya</h3>
+          <?php foreach ($data['dupa'] as $dupa) : ?>
           <ul>
             <li>
               <figure>
@@ -26,9 +27,9 @@
             </li>
             </li>
           </ul>
+        <?php endforeach; ?>
         </div>
       </header>
     </article>
   </aside>
-<?php endforeach; ?>
 </main>

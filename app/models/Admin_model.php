@@ -77,10 +77,10 @@ class Admin_model
             $_SESSION['username'] = $username;
             $_SESSION['login'] = 'login';
             echo "berhasil";
-            header('Location:'. BASEURL .'/admin/dashboard');
+            header('Location:'. BASEURL .'/admin/index');
           }else {
             var_dump("gagal");
-            header('Location:'. BASEURL .'/admin/index');
+            header('Location:'. BASEURL .'/admin/login');
           }
         }
       }
@@ -123,7 +123,7 @@ class Admin_model
     $_SESSION = [];
     session_unset();
     session_destroy();
-    header("Location: ". BASEURL . "/admin/index");
+    header("Location: ". BASEURL . "/admin/login");
     exit;
   }
 }

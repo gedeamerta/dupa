@@ -22,8 +22,7 @@
         rel="stylesheet">
 
     <link rel="stylesheet" href="<?= BASEURL; ?>/assets/css/bootstrap.css">
-    <link rel="stylesheet" href="<?= BASEURL; ?>/assets/css-uikit/uikit.min.css">
-    <link rel="stylesheet" href="<?= BASEURL; ?>/assets/css/uikit.css">
+    <link rel="stylesheet" href="<?= BASEURL; ?>/assets/css-uikit/uikit.css">
     <link rel="stylesheet" href="<?= BASEURL; ?>/assets/style.css">
 
     <title><?= $data['judul']; ?></title>
