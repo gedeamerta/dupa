@@ -27,13 +27,8 @@ class Flasher
  public static function errorRegister()
  {
    if (isset($_SESSION['error'])) {
-     echo '<style>
-         p{
-           text-align: center;
-           color: red;
-         }
-     </style>
-     <p>'. $_SESSION['error']['pesan'] .'</p>';
+     echo '
+     <p style="color:red; margin: 10px;">'. $_SESSION['error']['pesan'] .'</p>';
      unset($_SESSION['error']);
    }
  }
@@ -52,7 +47,7 @@ class Flasher
       unset($_SESSION['error']);
     }
   }
-  
+
   public static function flash()
   {
     if (isset($_SESSION['flash'])) {

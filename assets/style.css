@@ -152,7 +152,7 @@ section li {
 }
 
 .profile img {
-  width: 100%;
+  width: 50%;
 }
 
 .kategori-list figure {
@@ -169,7 +169,6 @@ figure img {
 
 .kategori-list ul li {
   color: green;
-  list-style: none;
   text-decoration: none;
 }
 
@@ -194,6 +193,19 @@ aside {
   padding: 10px;
 }
 
+.media-body a {
+  text-decoration: none;
+  color: black;
+  transition: 0.5s;
+}
+
+.media-body a:hover {
+  color: blue;
+}
+
+.media-body h5 {
+  text-decoration: underline;
+}
 
 @media screen and (max-width:1050px) {
   main,

@@ -15,20 +15,20 @@
   <aside>
     <article class="profile card">
       <header>
-        <div class="kategori-list">
-          <h3>Jenis Dupa Lainnya</h3>
-          <?php foreach ($data['dupa'] as $dupa) : ?>
-          <ul>
-            <li>
-              <figure>
-                <img class="imgCenter" src="<?= BASEURL; ?>/assets/img/siwa-white.jpg" alt="">
-                  <a href="<?= BASEURL; ?>/home/dupa/<?= $dupa['id']; ?>"><?= $dupa['nama_dupa'] ?></a>
-              </figure>
-            </li>
+        <h3 class="mb-2">Jenis Produk Lainnya</h3>
+        <?php foreach ($data['dupa'] as $dupa) : ?>
+        <div class="media">
+          <ul class="list-unstyled">
+            <li class="media">
+              <img src="<?= BASEURL; ?>/assets/img/siwa-white.jpg" class="img-thumbnail mr-3" alt="...">
+              <div class="media-body">
+                <h5 style="color: red;" class="mt-3 mb-2">New</h5>
+                <a href="<?= BASEURL; ?>/home/dupa/<?= $dupa['id']; ?>"><?= $dupa['nama_dupa'] ?></a>
+              </div>
             </li>
           </ul>
-        <?php endforeach; ?>
-        </div>
+      </div>
+      <?php endforeach; ?>
       </header>
     </article>
   </aside>

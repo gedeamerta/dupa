@@ -45,7 +45,7 @@
                     <a class="nav-link text-light" href="<?= BASEURL; ?>/home/about">Tentang Kami</a>
                   </li>
                   <li class="nav-item">
-                    <a class="nav-link text-light" href="#">Kegunaan</a>
+                    <a class="nav-link text-light" href="<?= BASEURL; ?>/home/kegunaan">Kegunaan</a>
                   </li>
                   <li class="nav-item">
                     <a class="nav-link text-light" href="<?= BASEURL; ?>/home/pembuatan">Pembuatan</a>

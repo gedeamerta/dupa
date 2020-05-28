@@ -19,6 +19,14 @@ class Home extends Controller
     $this->view("templates/footer");
   }
 
+  public function kegunaan()
+  {
+    $data['judul'] = 'Kegunaan';
+    $this->view("templates/header", $data);
+    $this->view("home/kegunaan");
+    $this->view("templates/footer");
+  }
+
   public function pembuatan()
   {
     $data['judul'] = 'Pembuatan';
@@ -31,7 +39,7 @@ class Home extends Controller
   {
     $data['judul'] = 'Dupa';
     $data['dupa_single'] = $this->model('Admin_model')->getDupa($id);
-    $data['dupa'] = $this->model('Admin_model')->getAllDupa();
+    $data['dupa'] = $this->model('Admin_model')->getAllDupaLimit();
     $this->view("templates/header", $data);
     $this->view("home/dupa", $data);
     $this->view("templates/footer");

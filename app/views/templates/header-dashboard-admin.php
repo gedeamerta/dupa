@@ -35,20 +35,61 @@
       <a class="navbar-brand text-light" href="<?= BASEURL; ?>/home/index">🕉 Ersania Dupa Harum</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
-        </button>
+      </button>
+        <div class="collapse navbar-collapse" id="navbarNavDropdown">
+            <ul class="navbar-nav ml-auto">
+              <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle text-light" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                  Admin
+                </a>
+                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                  <a class="dropdown-item" href="" uk-toggle="target: #formAdmin">Add New Admin</a>
+                  <div class="dropdown-divider"></div>
+                  <a class="nav-link" href="<?= BASEURL; ?>/admin/setOut">Log Out</a>
+                </div>
+              </li>
+                <li class="nav-item">
+                  <a class="nav-link text-light" href="<?= BASEURL; ?>/home/index">Beranda<span class="sr-only">(current)</span></a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link text-light" href="<?= BASEURL; ?>/admin/dashboard">Dupa List</a>
+                </li>
+            </ul>
+        </div>
 
-          <div class="collapse navbar-collapse" id="navbarNavDropdown">
-              <ul class="navbar-nav ml-auto">
-                  <li class="nav-item">
-                    <a class="nav-link text-light" href="<?= BASEURL; ?>/home/index">Beranda<span class="sr-only">(current)</span></a>
-                  </li>
-                  <li class="nav-item">
-                    <a class="nav-link text-light" href="<?= BASEURL; ?>/admin/dashboard">Dupa List</a>
-                  </li>
-                  <li class="nav-item">
-                    <a class="nav-link text-light" href="<?= BASEURL; ?>/admin/setOut">Log Out</a>
-                  </li>
-              </ul>
-          </div>
       </nav>
+        <?php Flasher::errorRegister(); ?>
   <!-- Akhir Navbar -->
+
+  <!-- modal add admin -->
+  <div id="formAdmin" uk-modal>
+      <div class="uk-modal-dialog uk-modal-body ubahData">
+          <h2 id="formModalLabel" class="uk-modal-title">Masukan Data Admin</h2>
+
+          <form class="uk-grid-small" action="<?= BASEURL; ?>/admin/addUser" method="post" uk-grid>
+              <input type="hidden" id="id" name="id">
+              <div class="uk-inline uk-width-1-2@s">
+                  <input class="uk-input" type="text" name="username" value="" id="username" placeholder="Username">
+              </div>
+
+              <div class="uk-inline uk-width-1-2@s">
+                  <input class="uk-input" type="email" name="email" value="" id="email"  placeholder="Email">
+              </div>
+
+              <div class="uk-inline uk-width-1-2@s">
+                  <input class="uk-input" type="password" name="password" value="" id="password"  placeholder="Password">
+              </div>
+
+              <div class="uk-inline uk-width-1-2@s">
+                  <input class="uk-input" type="password" name="password_conf" value="" id="password_conf"  placeholder="Re-type Paswsword">
+              </div>
+
+              <p class="uk-text-right tombolSubmit">
+                <button style="margin-right: 10px;" class="uk-button uk-button-default uk-modal-close" type="button">Cancel</button>
+                <button class="uk-button uk-button-primary" type="submit">Save</button>
+              </p>
+
+        </form>
+      </div>
+    </div>
+  <!-- modal add admin -->

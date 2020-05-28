@@ -11,7 +11,7 @@
                         <ul>
                             <li><a href="<?= BASEURL; ?>/home/index">Home</a></li>
                             <li><a href="<?= BASEURL; ?>/home/about">Tentang Kami</a></li>
-                            <li><a href="#">Kegunaan</a></li>
+                            <li><a href="<?= BASEURL; ?>/home/kegunaan">Kegunaan</a></li>
                             <li><a href="<?= BASEURL; ?>/home/pembuatan">Pembuatan</a></li>
                         </ul>
                     </div>
@@ -32,7 +32,7 @@
 
   <!-- Footer-Start -->
     <footer>
-      <p>Ersania Dupa Harum &#169; 2020, Raditya Satriawan & Gede Amerta</p>
+      <p>Ersania Dupa Harum &#169; 2020, Raditia Satriawan & Gede Amerta</p>
     </footer>
   <!-- Footer-End -->
     <script src="<?= BASEURL; ?>/assets/js-uikit/uikit.min.js"></script>

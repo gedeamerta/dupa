@@ -19,12 +19,28 @@ class Admin_model
     }
   }
 
+  //mengambil data dupa di database dengan batasan 5 data
+  public function getAllDupaLimit()
+  {
+    $this->db->query('SELECT * FROM dupa ORDER BY id DESC LIMIT 5');
+    return $this->db->resultSet();
+  }
+
+  //mengambil semua dupa di database untuk ditampilkan
   public function getAllDupa()
   {
     $this->db->query('SELECT * FROM dupa');
     return $this->db->resultSet();
   }
 
+//mengambil data admin di database untuk ditampilkan
+  // public function getAdmin($username)
+  // {
+  //   $this->db->query('SELECT * FROM admin WHERE username=:username');
+  //   return $this->db->single();
+  // }
+
+//mengambil satu data dupa di database untuk ditampilkan
   public function getDupa($id)
   {
     $this->db->query('SELECT * FROM dupa WHERE id =:id');
@@ -32,7 +48,8 @@ class Admin_model
     return $this->db->single();
   }
 
-  public function register($data)
+//menambahkan actor admin
+  public function add($data)
   {
     $username = htmlspecialchars($data['username']);
     $email = htmlspecialchars($data['email']);
@@ -41,7 +58,7 @@ class Admin_model
 
     if ($data_user = $this->getUserBy("username", $username)) {
       var_dump('username ada');
-      header("Location: ". BASEURL . "/admin/register");
+      header("Location: ". BASEURL . "/admin/dashboard");
     }else {
       if (isset($password) && $password !== "" || isset($password_conf) && $password_conf !== "" ) {
         if ($password === $password_conf) {
@@ -54,11 +71,11 @@ class Admin_model
           $this->db->execute();
           return $this->db->rowCount();
         }else {
-          header("Location: ". BASEURL . "/admin/register");
+          header("Location: ". BASEURL . "/admin/dashboard");
         }
       }else {
         echo "password masih belom dimasukin";
-        header("Location: ". BASEURL . "/admin/register");
+        header("Location: ". BASEURL . "/admin/dashboard");
       }
     }
   }
@@ -77,10 +94,10 @@ class Admin_model
             $_SESSION['username'] = $username;
             $_SESSION['login'] = 'login';
             echo "berhasil";
-            header('Location:'. BASEURL .'/admin/index');
+            return true;
           }else {
             var_dump("gagal");
-            header('Location:'. BASEURL .'/admin/login');
+            return false;
           }
         }
       }
