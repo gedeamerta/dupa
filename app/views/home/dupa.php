@@ -4,7 +4,7 @@
       <section>
           <img src="<?= BASEURL; ?>/assets/img/ganesh-card.jpg"  width="700px" class="featured-image" alt="">
           <h1><?= $data['dupa_single']['nama_dupa']; ?></h1>
-          <h3>Harga : Rp. <?= $data['dupa_single']['harga_dupa']; ?></h3>
+          <h3>Harga : Rp. <?= number_format($data['dupa_single']['harga_dupa'],0,",","."); ?></h3>
           <p>
             <?= $data['dupa_single']['deskripsi']; ?>
           </p>
@@ -23,7 +23,7 @@
               <img src="<?= BASEURL; ?>/assets/img/siwa-white.jpg" class="img-thumbnail mr-3" alt="...">
               <div class="media-body">
                 <h5 style="color: red;" class="mt-3 mb-2">New</h5>
-                <a href="<?= BASEURL; ?>/home/dupa/<?= $dupa['id']; ?>"><?= $dupa['nama_dupa'] ?></a>
+                <a href="<?= BASEURL; ?>/home/dupa/<?= $dupa['id']; ?>"><?= $dupa['nama_dupa']?></a>
               </div>
             </li>
           </ul>
