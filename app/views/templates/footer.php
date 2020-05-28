@@ -18,11 +18,22 @@
                     <div class="contact col-md-4 col-sm-4 segment-three">
                           <h3>Contact Us</h3>
                           <ul>
-                            <li><img src="<?= BASEURL; ?>/assets/img/whatsapp.png"  alt=""> 087 762 513 434 </li>
-                            <li><img src="<?= BASEURL; ?>/assets/img/instagram.png"  alt=""> @example</li>
-                            <li><img src="<?= BASEURL; ?>/assets/img/facebook.png"  alt=""> example</li>
-                            <li><img src="<?= BASEURL; ?>/assets/img/gmail.png"  alt=""> example@gmail.com</li>
-                            <li><img src="<?= BASEURL; ?>/assets/img/signs.png" alt=""> Air Sanih, Buleleng-Bali</li>
+                            <li>
+                              <img src="<?= BASEURL; ?>/assets/img/whatsapp.png" alt="">
+                              <a class="uk-link-text" href="https://wa.me/6287762513434"> 087 762 513 434</a>
+                            </li>
+                            <li>
+                              <img src="<?= BASEURL; ?>/assets/img/instagram.png" alt=""> Example
+                            </li>
+                            <li><img src="<?= BASEURL; ?>/assets/img/facebook.png" alt=""> example</li>
+                            <li>
+                              <img src="<?= BASEURL; ?>/assets/img/gmail.png" alt="">
+                              <a class="uk-link-text" href="mailto:example@mail.com">example@gmail.com</a>
+                            </li>
+                            <li>
+                              <img src="<?= BASEURL; ?>/assets/img/signs.png" alt="">
+                              <a class="uk-link-text" href="https://www.google.co.id/maps/place/Kolam+Alami+Air+Sanih/@-8.0777545,115.2150077,17z/data=!3m1!4b1!4m5!3m4!1s0x2dd194723796bfc7:0x89506769d2e15f62!8m2!3d-8.0777598!4d115.2171964"> Air Sanih, Buleleng-Bali</a>
+                            </li>
                           </ul>
                     </div>
                 </div>
@@ -32,7 +43,8 @@
 
   <!-- Footer-Start -->
     <footer>
-      <p>Ersania Dupa Harum &#169; 2020, Raditia Satriawan & Gede Amerta</p>
+      <p class="float-md-left">&#169; 2020 Ersania Dupa Harum</p>
+      <p class="float-md-right">Created by  Raditia Satriawan & Gede Amerta</p>
     </footer>
   <!-- Footer-End -->
     <script src="<?= BASEURL; ?>/assets/js-uikit/uikit.min.js"></script>
