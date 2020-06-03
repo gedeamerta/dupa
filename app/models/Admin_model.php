@@ -56,20 +56,29 @@ class Admin_model
     $password= htmlspecialchars($data['password']);
     $password_conf = htmlspecialchars($data['password_conf']);
 
-    if ($data_user = $this->getUserBy("username", $username)) {
-      var_dump('username ada');
+    //validate password
+    $uppercase =  preg_match('@[A-Z]@', $password);
+    $lowercase =  preg_match('@[a-z]@', $password);
+    $number =  preg_match('@[0-9]@', $password);
+
+    if ($data_user = $this->getUserBy("email", $email)) {
+      var_dump('email sudah ada');
       header("Location: ". BASEURL . "/admin/dashboard");
     }else {
       if (isset($password) && $password !== "" || isset($password_conf) && $password_conf !== "" ) {
         if ($password === $password_conf) {
-          $query = "INSERT INTO admin(username, email, password) VALUES(:username, :email, :password)";
+          if (!$uppercase || !$lowercase || !$number || strlen($password) < 8) {
+                echo '<script>alert("Password should be at least 8 characters in length and should include at least one upper case letter, one number.")</script>';
+          }else {
+            $query = "INSERT INTO admin(username, email, password) VALUES(:username, :email, :password)";
 
-          $this->db->query($query);
-          $this->db->bind("username", $username);
-          $this->db->bind("email", $email);
-          $this->db->bind("password", password_hash($password, PASSWORD_DEFAULT));
-          $this->db->execute();
-          return $this->db->rowCount();
+            $this->db->query($query);
+            $this->db->bind("username", $username);
+            $this->db->bind("email", $email);
+            $this->db->bind("password", password_hash($password, PASSWORD_DEFAULT));
+            $this->db->execute();
+            return $this->db->rowCount();
+          }
         }else {
           header("Location: ". BASEURL . "/admin/dashboard");
         }

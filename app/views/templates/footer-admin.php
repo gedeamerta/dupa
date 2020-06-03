@@ -1,8 +1,9 @@
 
   <!-- Footer-Start -->
-    <footer>
-      <p>Ersania Dupa Harum &#169; 2020, Raditia Satriawan & Gede Amerta</p>
-    </footer>
+  <footer>
+    <p class="float-md-left">&#169; 2020 Ersania Dupa Harum</p>
+    <p class="float-md-right">Created by  Raditia Satriawan & Gede Amerta</p>
+  </footer>
   <!-- Footer-End -->
     <script src="<?= BASEURL; ?>/assets/js-uikit/uikit.min.js"></script>
     <script src="<?= BASEURL; ?>/assets/js-uikit/uikit-icons.min.js"></script>
@@ -23,5 +24,6 @@
     <!-- UIkit JS -->
     <script src="https://cdn.jsdelivr.net/npm/uikit@3.4.6/dist/js/uikit.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/uikit@3.4.6/dist/js/uikit-icons.min.js"></script>
+
 </body>
 </html>

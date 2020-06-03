@@ -1,30 +1,30 @@
 <div class="dupa-index">
-
-
   <button class="uk-button uk-button-secondary uk-margin-small-right tombolTambahData" type="button" uk-toggle="target: #formModal">Tambah Data</button>
 
   <form class="uk-search uk-search-default uk-margin" action="<?= BASEURL; ?>/admin/cari" method="post">
     <span uk-search-icon></span>
     <input class="uk-search-input" type="search" name="keyword" id="keyword" placeholder="Search...">
   </form>
+
   <h1 class="uk-text-center">Daftar Dupa</h1>
     <?php Flasher::flash(); ?>
-    <!-- This is the modal -->
+
+    <!-- This is start the modal -->
     <div id="formModal" uk-modal>
         <div class="uk-modal-dialog uk-modal-body ubahData">
             <h2 id="formModalLabel" class="uk-modal-title">Masukan Data Dupa</h2>
             <form class="uk-grid-small" action="<?= BASEURL; ?>/admin/tambah" method="post" uk-grid>
                 <input type="hidden" id="id" name="id">
                 <div class="uk-inline uk-width-1-2@s">
-                    <input class="uk-input" type="text" name="nama_dupa" value="" id="email" placeholder="Nama Dupa">
+                    <input class="uk-input" type="text" name="nama_dupa" value="" id="email" placeholder="Nama Dupa" required>
                 </div>
 
                 <div class="uk-inline uk-width-1-2@s">
-                    <input class="uk-input" type="number" name="harga_dupa" value="" id="nama"  placeholder="Rp. Harga">
+                    <input class="uk-input" type="number" name="harga_dupa" value="" id="nama"  placeholder="Rp. Harga" required>
                 </div>
 
                 <div class="uk-inline uk-width-1-2@s">
-                    <input class="uk-input" type="text" name="deskripsi" value="" id="nama"  placeholder="Deskripsi Produk">
+                    <input class="uk-input" type="text" name="deskripsi" value="" id="nama"  placeholder="Deskripsi Produk" required>
                 </div>
 
                 <p class="uk-text-right tombolSubmit">
@@ -35,6 +35,7 @@
           </form>
         </div>
       </div>
+      <!-- This is end modal -->
 
     <div class="uk-child-width-1-3@m uk-grid-small uk-grid-match" uk-grid>
       <?php foreach ($data['dupa'] as $dupa) : ?>
@@ -50,4 +51,5 @@
          </div>
       <?php endforeach; ?>
     </div>
+    
 </div>

@@ -58,15 +58,16 @@
         </div>
 
       </nav>
-        <?php Flasher::errorRegister(); ?>
+
+      <?php Flasher::registerFlash(); ?>
   <!-- Akhir Navbar -->
 
-  <!-- modal add admin -->
+  <!-- start modal add admin -->
   <div id="formAdmin" uk-modal>
       <div class="uk-modal-dialog uk-modal-body ubahData">
           <h2 id="formModalLabel" class="uk-modal-title">Masukan Data Admin</h2>
 
-          <form class="uk-grid-small" action="<?= BASEURL; ?>/admin/addUser" method="post" uk-grid>
+          <form class="uk-grid-small" action="<?= BASEURL; ?>/admin/addAdmin" method="post" uk-grid>
               <input type="hidden" id="id" name="id">
               <div class="uk-inline uk-width-1-2@s">
                   <input class="uk-input" type="text" name="username" value="" id="username" placeholder="Username">
@@ -78,6 +79,7 @@
 
               <div class="uk-inline uk-width-1-2@s">
                   <input class="uk-input" type="password" name="password" value="" id="password"  placeholder="Password">
+
               </div>
 
               <div class="uk-inline uk-width-1-2@s">
@@ -86,10 +88,10 @@
 
               <p class="uk-text-right tombolSubmit">
                 <button style="margin-right: 10px;" class="uk-button uk-button-default uk-modal-close" type="button">Cancel</button>
-                <button class="uk-button uk-button-primary" type="submit">Save</button>
+                <button class="uk-button uk-button-primary" type="submit" onclick="CheckLength('password')">Save</button>
               </p>
 
         </form>
       </div>
     </div>
-  <!-- modal add admin -->
+  <!-- end modal add admin -->

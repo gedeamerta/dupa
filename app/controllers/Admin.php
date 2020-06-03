@@ -27,28 +27,28 @@ class Admin extends Controller
     }
   }
 
-  public function register()
-  {
-    if (isset($_SESSION['login'])) {
-      header("Location: ". BASEURL . "/admin/index");
-    }else {
-      if (!isset($_POST['register'])) {
-        $data['judul'] = 'Register';
-        $this->view("templates/header-admin", $data);
-        $this->view("admin/register");
-        $this->view("templates/footer-admin");
-      }else {
-        if ($this->model('Admin_model')->register($_POST) > 0) {
-          var_dump('sukses');
-          header("Location: ". BASEURL . "/admin/index");
-        }else {
-          Flasher::setErrorRegister('Failed to Register');
-          var_dump('gagal');
-          hedaer("Location: ". BASEURL . "/admin/register");
-        }
-      }
-    }
-  }
+  // public function register()
+  // {
+  //   if (!isset($_SESSION['login'])) {
+  //     header("Location: ". BASEURL . "/admin/index");
+  //   }else {
+  //     if (!isset($_POST['register'])) {
+  //       $data['judul'] = 'Register';
+  //       $this->view("templates/header-admin", $data);
+  //       $this->view("admin/register");
+  //       $this->view("templates/footer-admin");
+  //     }else {
+  //       if ($this->model('Admin_model')->register($_POST) > 0) {
+  //         var_dump('sukses');
+  //         header("Location: ". BASEURL . "/admin/index");
+  //       }else {
+  //         Flasher::setErrorRegister('Failed to Register');
+  //         var_dump('gagal');
+  //         hedaer("Location: ". BASEURL . "/admin/register");
+  //       }
+  //     }
+  //   }
+  // }
 
   public function dashboard()
   {
@@ -64,15 +64,16 @@ class Admin extends Controller
     }
   }
 
-  public function addUser()
+  public function addAdmin()
   {
     if ($this->model('Admin_model')->add($_POST) > 0) {
+      Flasher::setFlashRegister('berhasil', 'ditambahkan', 'success');
       var_dump('berhasil');
       header("Location: ". BASEURL . "/admin/dashboard");
     }else {
-      Flasher::setErrorRegister('Failed to Register');
+      Flasher::setFlashRegister('gagal ditambahkan', 'panjang kata sandi minimal harus 8 karakter dan harus menyertakan setidaknya satu huruf besar, dan satu angka.', 'danger');
       var_dump('gagal');
-      hedaer("Location: ". BASEURL . "/admin/dashboard");
+      header("Location: ". BASEURL . "/admin/dashboard");
     }
   }
 
