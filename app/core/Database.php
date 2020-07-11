@@ -6,16 +6,20 @@ class Database
   private $pass = DB_PASS;
   private $name = DB_NAME;
 
+  //database handler
   private $dbh;
+
   private $stmt;
 
+  //connect to database
   public function __construct()
   {
     $dsn = 'mysql:host=' . $this->host . ';dbname='.$this->name;
 
+    // Optimasi koneksi ke database
     $option = [
-        PDO::ATTR_PERSISTENT => true,
-        PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION
+        PDO::ATTR_PERSISTENT => true, //membuat koneksi ke database terjaga terus
+        PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION 
     ];
 
     try {
