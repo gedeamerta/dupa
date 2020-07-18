@@ -39,20 +39,18 @@
         <div class="collapse navbar-collapse" id="navbarNavDropdown">
             <ul class="navbar-nav ml-auto">
               <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle text-light" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                  Admin
-                </a>
-                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                  <a class="dropdown-item" href="" uk-toggle="target: #formAdmin">Add New Admin</a>
-                  <div class="dropdown-divider"></div>
-                  <a class="nav-link" href="<?= BASEURL; ?>/admin/setOut">Log Out</a>
-                </div>
-              </li>
-                <li class="nav-item">
-                  <a class="nav-link text-light" href="<?= BASEURL; ?>/home/index">Beranda<span class="sr-only">(current)</span></a>
+                <a class="nav-link dropdown-toggle text-light" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><?= $_SESSION['username']  ?></a>
+                  <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                      <a class="dropdown-item" href="" uk-toggle="target: #formAdmin">Add New Admin</a>
+                      <div class="dropdown-divider"></div>
+                      <a class="nav-link" href="<?= BASEURL; ?>/admin/setOut">Log Out</a>
+                  </div>
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link text-light" href="<?= BASEURL; ?>/admin/dashboard">Dupa List</a>
+                    <a class="nav-link text-light" href="<?= BASEURL; ?>/home/index">Beranda<span class="sr-only">(current)</span></a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link text-light" href="<?= BASEURL; ?>/admin/dashboard">Dupa List</a>
                 </li>
             </ul>
         </div>

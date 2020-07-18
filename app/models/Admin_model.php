@@ -61,6 +61,7 @@ class Admin_model
     $lowercase =  preg_match('@[a-z]@', $password);
     $number =  preg_match('@[0-9]@', $password);
 
+    //first check it out if there is an email on database, and if empty email go to register progress
     if ($data_user = $this->getUserBy("email", $email)) {
       var_dump('email sudah ada');
       header("Location: ". BASEURL . "/admin/dashboard");
@@ -95,6 +96,7 @@ class Admin_model
     $password = $data['password']; //password yg di input user
 
     if (isset($username) && $username !== "") {
+      
       //mengquery terlebih dahulu
       if ($data_user = $this->getUserBy('username', $username)){
         $password_user = $data_user['password'];  //password di database
