@@ -19,6 +19,16 @@ class Admin_model
     }
   }
 
+  public function getDupaBy($param, $value)
+  {
+    if (isset($param) && isset($value)) {
+      $data_user = "SELECT * FROM dupa WHERE $param = :$param ";
+      $this->db->query($data_user);
+      $this->db->bind($param, $value);
+      return $this->db->single();
+    }
+  }
+
   //mengambil data dupa di database dengan batasan 5 data
   public function getAllDupaLimit()
   {
@@ -33,12 +43,23 @@ class Admin_model
     return $this->db->resultSet();
   }
 
-//mengambil data admin di database untuk ditampilkan
-  // public function getAdmin($username)
-  // {
-  //   $this->db->query('SELECT * FROM admin WHERE username=:username');
-  //   return $this->db->single();
-  // }
+  public function getAllAdmin()
+  {
+    $sql = "SELECT * FROM admin WHERE image=:image";
+
+    $query = $this->db->query($sql);
+    if ($res = $this->db->rowCount($query) > 0) 
+    {
+      while ($res = $this->db->single(PDO::FETCH_OBJ)) 
+      {
+        $data[] = $res;
+      }
+
+      return $data;
+    }
+    
+    return false;
+  }
 
 //mengambil satu data dupa di database untuk ditampilkan
   public function getDupa($id)
@@ -53,6 +74,7 @@ class Admin_model
   {
     $username = htmlspecialchars($data['username']);
     $email = htmlspecialchars($data['email']);
+    $image = htmlspecialchars($data['image']);
     $password= htmlspecialchars($data['password']);
     $password_conf = htmlspecialchars($data['password_conf']);
 
@@ -60,6 +82,10 @@ class Admin_model
     $uppercase =  preg_match('@[A-Z]@', $password);
     $lowercase =  preg_match('@[a-z]@', $password);
     $number =  preg_match('@[0-9]@', $password);
+
+    //to find image location
+    $folderimage = '../assets/img/';
+    $uploadimage = move_uploaded_file($image['tmp_name'], $folderimage . $image['name']);
 
     //first check it out if there is an email on database, and if empty email go to register progress
     if ($data_user = $this->getUserBy("email", $email)) {
@@ -71,11 +97,12 @@ class Admin_model
           if (!$uppercase || !$lowercase || !$number || strlen($password) < 8) {
                 echo '<script>alert("Password should be at least 8 characters in length and should include at least one upper case letter, one number.")</script>';
           }else {
-            $query = "INSERT INTO admin(username, email, password) VALUES(:username, :email, :password)";
+            $query = "INSERT INTO admin(username, email, image, password) VALUES(:username, :email, :image, :password)";
 
             $this->db->query($query);
             $this->db->bind("username", $username);
             $this->db->bind("email", $email);
+            $this->db->bind("image", $image['name']);
             $this->db->bind("password", password_hash($password, PASSWORD_DEFAULT));
             $this->db->execute();
             return $this->db->rowCount();
@@ -116,15 +143,28 @@ class Admin_model
 
   public function tambahDupa($data)
   {
-    $query = 'INSERT INTO dupa (nama_dupa, harga_dupa, deskripsi) VALUES (:nama_dupa, :harga_dupa, :deskripsi)';
+    $nama_dupa = $data['nama_dupa'];
+    if ($data_dupa = $this->getDupaBy('nama_dupa', $nama_dupa)) {
+      var_dump("Dupa Sudah Ditambahkan");
+    }else {
+      $image = htmlspecialchars($data['image']);
 
-    $this->db->query($query);
-    $this->db->bind('nama_dupa', $data['nama_dupa']);
-    $this->db->bind('harga_dupa', $data['harga_dupa']);
-    $this->db->bind('deskripsi', $data['deskripsi']);
-    $this->db->execute();
+      //to find image location
+      $folderimage = BASEURL;'/assets/img/';
+      $uploadimage = move_uploaded_file($image['tmp_name'], $folderimage.$image['name']);
 
-    return $this->db->rowCount();
+      $query = 'INSERT INTO dupa (nama_dupa, image, harga_dupa, deskripsi) VALUES (:nama_dupa, :image, :harga_dupa, :deskripsi)';
+
+      $this->db->query($query);
+      $this->db->bind('nama_dupa', $data['nama_dupa']);
+      $this->db->bind('image', $image);
+      $this->db->bind('harga_dupa', $data['harga_dupa']);
+      $this->db->bind('deskripsi', $data['deskripsi']);
+      $this->db->execute();
+
+      return $this->db->rowCount();
+    }
+    
   }
 
   public function hapusDupa($id)

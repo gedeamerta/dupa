@@ -11,8 +11,8 @@
                         <ul>
                             <li><a href="<?= BASEURL; ?>/home/index">Home</a></li>
                             <li><a href="<?= BASEURL; ?>/home/about">Tentang Kami</a></li>
-                            <li><a href="<?= BASEURL; ?>/home/kegunaan">Kegunaan</a></li>
-                            <li><a href="<?= BASEURL; ?>/home/pembuatan">Pembuatan</a></li>
+                            <li><a href="<?= BASEURL; ?>/home/jenis">Jenis-Jenis</a></li>
+                            <!-- <li><a href="<?= BASEURL; ?>/home/pembuatan">Pembuatan</a></li> -->
                         </ul>
                     </div>
                     <div class="contact col-md-4 col-sm-4 segment-three">
@@ -43,7 +43,7 @@
 
   <!-- Footer-Start -->
     <footer>
-      <p class="float-md-left">&#169; 2020 Ersania Dupa Harum</p>
+      <p class="float-md-left">Copyright &#169; 2020 Ersania Dupa Harum</p>
       <p class="float-md-right">Created by  Raditia Satriawan & Gede Amerta</p>
     </footer>
   <!-- Footer-End -->

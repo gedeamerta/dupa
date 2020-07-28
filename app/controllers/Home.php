@@ -19,11 +19,11 @@ class Home extends Controller
     $this->view("templates/footer");
   }
 
-  public function kegunaan()
+  public function jenis()
   {
-    $data['judul'] = 'Kegunaan';
+    $data['judul'] = 'Jenis Jenis Dupa';
     $this->view("templates/header", $data);
-    $this->view("home/kegunaan");
+    $this->view("home/jenis");
     $this->view("templates/footer");
   }
 

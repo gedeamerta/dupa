@@ -18,7 +18,7 @@ class Admin extends Controller
       $this->view('templates/footer-admin');
     }else {
       if ($this->model('Admin_model')->login($_POST) > 0) {
-        header('Location:'. BASEURL .'/admin/dashboard');
+        header('Location:'. BASEURL .'/admin/dashboard2');
       }else {
         var_dump('gagal');
         Flasher::setErrorLogin('Invalid Username or Password');
@@ -27,28 +27,30 @@ class Admin extends Controller
     }
   }
 
-  // public function register()
-  // {
-  //   if (!isset($_SESSION['login'])) {
-  //     header("Location: ". BASEURL . "/admin/index");
-  //   }else {
-  //     if (!isset($_POST['register'])) {
-  //       $data['judul'] = 'Register';
-  //       $this->view("templates/header-admin", $data);
-  //       $this->view("admin/register");
-  //       $this->view("templates/footer-admin");
-  //     }else {
-  //       if ($this->model('Admin_model')->register($_POST) > 0) {
-  //         var_dump('sukses');
-  //         header("Location: ". BASEURL . "/admin/index");
-  //       }else {
-  //         Flasher::setErrorRegister('Failed to Register');
-  //         var_dump('gagal');
-  //         hedaer("Location: ". BASEURL . "/admin/register");
-  //       }
-  //     }
-  //   }
-  // }
+  public function dashboard2()
+  {
+    if (!isset($_SESSION['login'])) {
+      $data['judul'] = 'Login';
+      $this->view('templates/header-admin', $data);
+      $this->view('admin/index');
+      $this->view('templates/footer-admin');
+    }else {
+      $data['image_single'] = $this->model('Admin_model')->getAllAdmin();
+      $data['dupa'] = $this->model('Admin_model')->getAllDupa();
+      $this->view('templates/_sidebar', $data);
+      $this->view('templates/_header', $data);
+      $this->view('admin/dashboard2', $data);
+      $this->view('templates/_footer');
+    }
+  }
+
+  public function forms()
+  {
+    $this->view('templates/_sidebar');
+    $this->view('templates/_header');
+    $this->view('admin/forms');
+    $this->view('templates/_footer');
+  }
 
   public function dashboard()
   {
@@ -69,11 +71,11 @@ class Admin extends Controller
     if ($this->model('Admin_model')->add($_POST) > 0) {
       Flasher::setFlashRegister('berhasil', 'ditambahkan', 'success');
       var_dump('berhasil');
-      header("Location: ". BASEURL . "/admin/dashboard");
+      header("Location: ". BASEURL . "/admin/forms");
     }else {
       Flasher::setFlashRegister('gagal ditambahkan', 'panjang kata sandi minimal harus 8 karakter dan harus menyertakan setidaknya satu huruf besar, dan satu angka.', 'danger');
       var_dump('gagal');
-      header("Location: ". BASEURL . "/admin/dashboard");
+      header("Location: ". BASEURL . "/admin/forms");
     }
   }
 
@@ -81,11 +83,11 @@ class Admin extends Controller
   {
     if ($this->model('Admin_model')->tambahDupa($_POST) > 0) {
       Flasher::setFlash('berhasil', 'ditambahkan', 'success');
-      header('Location: '. BASEURL . '/admin/dashboard');
+      header('Location: '. BASEURL . '/admin/forms');
       exit;
     }else {
       Flasher::setFlash('gagal', 'ditambahkan', 'danger');
-      header('Location: '. BASEURL . '/admin/dashboard');
+      header('Location: '. BASEURL . '/admin/forms');
       exit;
     }
   }
