@@ -11,9 +11,7 @@ class App
     $url = $this->parseURL();
 
     // untuk Controller
-    if($url == NULL) {
-      $url = [$this->controller];
-    }
+    if($url == NULL) {$url = [$this->controller];}
     if (file_exists('app/controllers/' . $url[0] . '.php')) {
       //array[0] mencari array paling pertama pada url yaitu controller
       //ada tidak file yang namanya home.php di dalam folder controller

@@ -74,7 +74,6 @@ class Admin_model
   {
     $username = htmlspecialchars($data['username']);
     $email = htmlspecialchars($data['email']);
-    $image = htmlspecialchars($data['image']);
     $password= htmlspecialchars($data['password']);
     $password_conf = htmlspecialchars($data['password_conf']);
 
@@ -83,9 +82,9 @@ class Admin_model
     $lowercase =  preg_match('@[a-z]@', $password);
     $number =  preg_match('@[0-9]@', $password);
 
-    //to find image location
-    $folderimage = '../assets/img/';
-    $uploadimage = move_uploaded_file($image['tmp_name'], $folderimage . $image['name']);
+    // to find image location
+    $folderimage = __DIR__.DIRECTORY_SEPARATOR.'..'.DIRECTORY_SEPARATOR.'assets'.DIRECTORY_SEPARATOR.'img'.$_FILES['image']['name'];
+    move_uploaded_file($_FILES.$data['image']['tmp_name'], $folderimage);
 
     //first check it out if there is an email on database, and if empty email go to register progress
     if ($data_user = $this->getUserBy("email", $email)) {
@@ -93,16 +92,20 @@ class Admin_model
       header("Location: ". BASEURL . "/admin/dashboard");
     }else {
       if (isset($password) && $password !== "" || isset($password_conf) && $password_conf !== "" ) {
-        if ($password === $password_conf) {
-          if (!$uppercase || !$lowercase || !$number || strlen($password) < 8) {
-                echo '<script>alert("Password should be at least 8 characters in length and should include at least one upper case letter, one number.")</script>';
+        if ($password === $password_conf) 
+        {
+          if (!$uppercase || !$lowercase || !$number || strlen($password) < 8) 
+          {
+                echo '<script>
+                        alert("Password should be at least 8 characters in length and should include at least one upper case letter, one number.")
+                    </script>';
           }else {
-            $query = "INSERT INTO admin(username, email, image, password) VALUES(:username, :email, :image, :password)";
+            $query = "INSERT INTO admin(username, email, password) VALUES(:username, :email, :password)";
 
             $this->db->query($query);
             $this->db->bind("username", $username);
             $this->db->bind("email", $email);
-            $this->db->bind("image", $image['name']);
+            // $this->db->bind("image", $data['image']);
             $this->db->bind("password", password_hash($password, PASSWORD_DEFAULT));
             $this->db->execute();
             return $this->db->rowCount();
@@ -128,7 +131,7 @@ class Admin_model
       if ($data_user = $this->getUserBy('username', $username)){
         $password_user = $data_user['password'];  //password di database
 
-        if (password_verify($password, $password_user)) {
+        if (password_verify($password_user, $password) || $password_user === $password) {
             $_SESSION['username'] = $username;
             $_SESSION['login'] = 'login';
             echo "berhasil";
@@ -143,25 +146,25 @@ class Admin_model
 
   public function tambahDupa($data)
   {
-    $nama_dupa = $data['nama_dupa'];
-    if ($data_dupa = $this->getDupaBy('nama_dupa', $nama_dupa)) {
+    if ($data_dupa = $this->getDupaBy('nama_dupa', $data['nama_dupa'])) {
       var_dump("Dupa Sudah Ditambahkan");
     }else {
-      $image = htmlspecialchars($data['image']);
 
-      //to find image location
-      $folderimage = BASEURL;'/assets/img/';
-      $uploadimage = move_uploaded_file($image['tmp_name'], $folderimage.$image['name']);
+      // to find image location
+      $folderimage = __DIR__.DIRECTORY_SEPARATOR.'..'.DIRECTORY_SEPARATOR.'assets'.DIRECTORY_SEPARATOR.'img'.$data['image']['name'];
+      move_uploaded_file($data['image']['tmp_name'], $folderimage);
 
-      $query = 'INSERT INTO dupa (nama_dupa, image, harga_dupa, deskripsi) VALUES (:nama_dupa, :image, :harga_dupa, :deskripsi)';
+      $query = 'INSERT INTO dupa (nama_dupa, harga_dupa, deskripsi) VALUES (:nama_dupa,  :harga_dupa, :deskripsi)';
 
       $this->db->query($query);
       $this->db->bind('nama_dupa', $data['nama_dupa']);
-      $this->db->bind('image', $image);
+      // $this->db->bind('image', $data['image']);
       $this->db->bind('harga_dupa', $data['harga_dupa']);
       $this->db->bind('deskripsi', $data['deskripsi']);
       $this->db->execute();
 
+      // finding the image is moved or not
+      var_dump($data);
       return $this->db->rowCount();
     }
     

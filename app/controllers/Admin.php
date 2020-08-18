@@ -52,19 +52,19 @@ class Admin extends Controller
     $this->view('templates/_footer');
   }
 
-  public function dashboard()
-  {
-    if (!isset($_SESSION['login'])) {
-      header("Location: ". BASEURL . "/admin/index");
-    }else {
-      $data['judul'] = 'Dashboard';
-      $data['dupa'] = $this->model('Admin_model')->getAllDupa();
-      $this->view("templates/header-dashboard-admin", $data);
-      $this->view("admin/dashboard", $data);
-      $this->view("templates/footer-admin");
-      exit;
-    }
-  }
+  // public function dashboard()
+  // {
+  //   if (!isset($_SESSION['login'])) {
+  //     header("Location: ". BASEURL . "/admin/index");
+  //   }else {
+  //     $data['judul'] = 'Dashboard';
+  //     $data['dupa'] = $this->model('Admin_model')->getAllDupa();
+  //     $this->view("templates/header-dashboard-admin", $data);
+  //     $this->view("admin/dashboard", $data);
+  //     $this->view("templates/footer-admin");
+  //     exit;
+  //   }
+  // }
 
   public function addAdmin()
   {

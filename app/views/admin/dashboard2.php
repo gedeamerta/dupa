@@ -23,6 +23,6 @@
           </footer>
         </div>
         <!-- main-panel ends -->
-      </div>
-      <!-- page-body-wrapper ends -->
-    </div>
+        </div>
+        <!-- page-body-wrapper ends -->
+        </div>
