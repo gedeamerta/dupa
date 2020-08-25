@@ -82,9 +82,9 @@ class Admin_model
     $lowercase =  preg_match('@[a-z]@', $password);
     $number =  preg_match('@[0-9]@', $password);
 
-    // to find image location
-    $folderimage = __DIR__.DIRECTORY_SEPARATOR.'..'.DIRECTORY_SEPARATOR.'assets'.DIRECTORY_SEPARATOR.'img'.$_FILES['image']['name'];
-    move_uploaded_file($_FILES.$data['image']['tmp_name'], $folderimage);
+    // // to find image location
+    // $folderimage = __DIR__.DIRECTORY_SEPARATOR.'..'.DIRECTORY_SEPARATOR.'assets'.DIRECTORY_SEPARATOR.'img'.$_FILES['image']['name'];
+    // move_uploaded_file($_FILES.$data['image']['tmp_name'], $folderimage);
 
     //first check it out if there is an email on database, and if empty email go to register progress
     if ($data_user = $this->getUserBy("email", $email)) {

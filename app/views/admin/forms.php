@@ -75,7 +75,7 @@
               </div>
 
               <div class="form-group row">
-                <label for="exampleInputConfirmPassword2" class="col-sm-3 col-form-label">Re Password</label>
+                <label for="exampleInputConfirmPassword2" class="col-sm-3 col-form-label">Re-Password</label>
                 <div class="col-sm-9">
                   <input type="password" class="form-control" id="exampleInputConfirmPassword2" name="password_conf" placeholder="Password" />
                 </div>
