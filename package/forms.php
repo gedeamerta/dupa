@@ -19,16 +19,12 @@
                 <input type="text" class="form-control" id="exampleInputUsername1" type="text" name="nama_dupa" value="" placeholder="Nama Dupa" required />
               </div>
               <div class="form-group">
-                <label for="exampleInputPassword2">Gambar Dupa</label>
-                <input type="file" class="form-control" name="image" placeholder="Gambar" accept="image/jpeg , image/png"/>
-              </div>
-              <div class="form-group">
                 <label for="exampleInputEmail1">Harga Dupa</label>
                 <input type="number" class="form-control" id="exampleInputEmail1" type="number" name="harga_dupa" value="" placeholder="Rp. Harga" required />
               </div>
               <div class="form-group">
                 <label for="exampleInputPassword1">Deskripsi Produk</label>
-                <textarea type="text" class="form-control" id="exampleInputPassword1" name="deskripsi" value="" placeholder="Deskripsi Produk" required></textarea>
+                <input type="text" class="form-control" id="exampleInputPassword1" name="deskripsi" value="" placeholder="Deskripsi Produk" required />
               </div>
               <button type="submit" class="btn btn-primary mr-2"> Submit </button>
               <button class="btn btn-light">Cancel</button>
@@ -60,12 +56,14 @@
                 </div>
               </div>
 
-              <div class="form-group row">
+              <!-- 
+		<div class="form-group row">
                 <label for="exampleInputPassword2" class="col-sm-3 col-form-label">Gambar Profile</label>
                 <div class="col-sm-9">
-                  <input type="file" class="form-control" name="image" placeholder="Gambar" accept="image/jpeg , image/png"/>
+                  <input type="file" class="form-control" name="image" placeholder="Gambar" />
                 </div>
               </div>
+		-->
 
               <div class="form-group row">
                 <label for="exampleInputPassword2" class="col-sm-3 col-form-label">Password</label>
@@ -75,7 +73,7 @@
               </div>
 
               <div class="form-group row">
-                <label for="exampleInputConfirmPassword2" class="col-sm-3 col-form-label">Re-Password</label>
+                <label for="exampleInputConfirmPassword2" class="col-sm-3 col-form-label">Re Password</label>
                 <div class="col-sm-9">
                   <input type="password" class="form-control" id="exampleInputConfirmPassword2" name="password_conf" placeholder="Password" />
                 </div>

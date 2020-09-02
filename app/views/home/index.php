@@ -40,7 +40,7 @@
           <div class="col-md-4 mb-4">
             <div class="card-deck">
               <div class="card" uk-scrollspy="cls:uk-animation-slide-left; repeat: true" style="width:100%;">
-                <img src="<?= BASEURL; ?>/assets/img/ganesh-patung.jpg" class="card-img-top" alt="...">
+                <img src="<?= BASEURL . "/assets/img/" . $dupa["image"]; ?>" class="card-img-top" alt="...">
                 <div class="card-body">
                   <h2 class="card-title"><?= $dupa['nama_dupa']; ?></h2>
                   <p class="card-text"><?= substr($dupa['deskripsi'], 0, 29) . "..."; ?></p>

@@ -43,10 +43,22 @@ class Admin_model
     return $this->db->resultSet();
   }
 
-  public function getAdmin()
+  public function getAllAdmin()
   {
-    $this->db->query("SELECT * FROM admin");
-    return $this->db->single();
+    $sql = "SELECT * FROM admin WHERE image=:image";
+
+    $query = $this->db->query($sql);
+    if ($res = $this->db->rowCount($query) > 0) 
+    {
+      while ($res = $this->db->single(PDO::FETCH_OBJ)) 
+      {
+        $data[] = $res;
+      }
+
+      return $data;
+    }
+    
+    return false;
   }
 
 //mengambil satu data dupa di database untuk ditampilkan
@@ -62,7 +74,6 @@ class Admin_model
   {
     $username = htmlspecialchars($data['username']);
     $email = htmlspecialchars($data['email']);
-    $gambar = $_FILES["image"];
     $password= htmlspecialchars($data['password']);
     $password_conf = htmlspecialchars($data['password_conf']);
 
@@ -71,36 +82,9 @@ class Admin_model
     $lowercase =  preg_match('@[a-z]@', $password);
     $number =  preg_match('@[0-9]@', $password);
 
-    $targetDir =  __DIR__ . DIRECTORY_SEPARATOR . ".." . DIRECTORY_SEPARATOR . ".." . DIRECTORY_SEPARATOR . "assets" . DIRECTORY_SEPARATOR . "img" . DIRECTORY_SEPARATOR;
-    $targetFile = $targetDir . basename($gambar["name"]);
-    $extension  = strtolower(pathinfo($targetFile, PATHINFO_EXTENSION));
-    $uploadOk   = 1;
-
-    $check = getimagesize($gambar["tmp_name"]);
-    if ($check !== false) {
-      echo "File is an image - " . $check["mime"] . ".";
-      $uploadOk = 1;
-    } else {
-      echo "File is not an image.";
-      $uploadOk = 0;
-    }
-
-    if ($extension != "jpg" && $extension != "png" && $extension != "jpeg") {
-      echo "Sorry, only JPG, JPEG, and PNG images are allowed.";
-      $uploadOk = 0;
-    }
-
-    if ($uploadOk == 0) {
-      echo "Sorry, your file was not uploaded.";
-    } else {
-      if (move_uploaded_file($gambar["tmp_name"], $targetFile)) {
-        echo "The file " . basename($gambar["name"]) . " has been uploaded.";
-      } else {
-        echo "Sorry, there was an error uploading your file.";
-      }
-    }
-
-
+    //to find image location
+    //$folderimage = __DIR__.DIRECTORY_SEPARATOR.'..'.DIRECTORY_SEPARATOR.'assets'.DIRECTORY_SEPARATOR.'img'.$_FILES['image']['name'];
+    //move_uploaded_file($_FILES.$data['image']['tmp_name'], $folderimage);
 
     //first check it out if there is an email on database, and if empty email go to register progress
     if ($data_user = $this->getUserBy("email", $email)) {
@@ -116,12 +100,12 @@ class Admin_model
                         alert("Password should be at least 8 characters in length and should include at least one upper case letter, one number.")
                     </script>';
           }else {
-            $query = "INSERT INTO admin(username, email, image, password) VALUES(:username, :email, :image, :password)";
+            $query = "INSERT INTO admin(username, email, password) VALUES(:username, :email, :password)";
 
             $this->db->query($query);
             $this->db->bind("username", $username);
             $this->db->bind("email", $email);
-            $this->db->bind("image", $gambar['name']);
+            //$this->db->bind("image", $data['image']);
             $this->db->bind("password", password_hash($password, PASSWORD_DEFAULT));
             $this->db->execute();
             return $this->db->rowCount();
@@ -162,43 +146,19 @@ class Admin_model
 
   public function tambahDupa($data)
   {
-    $targetDir =  __DIR__ . DIRECTORY_SEPARATOR . ".." . DIRECTORY_SEPARATOR . ".." . DIRECTORY_SEPARATOR . "assets" . DIRECTORY_SEPARATOR . "img" . DIRECTORY_SEPARATOR;
-    $targetFile = $targetDir . basename($_FILES["image"]["name"]);
-    $extension  = strtolower(pathinfo($targetFile, PATHINFO_EXTENSION));
-    $uploadOk   = 1;
-
-    $check = getimagesize($_FILES["image"]["tmp_name"]);
-    if ($check !== false) {
-      echo "File is an image - " . $check["mime"] . ".";
-      $uploadOk = 1;
-    } else {
-      echo "File is not an image.";
-      $uploadOk = 0;
-    }
-
-    if ($extension != "jpg" && $extension != "png" && $extension != "jpeg") {
-      echo "Sorry, only JPG, JPEG, and PNG images are allowed.";
-      $uploadOk = 0;
-    }
-
-    if ($uploadOk == 0) {
-      echo "Sorry, your file was not uploaded.";
-    } else {
-      if (move_uploaded_file($_FILES["image"]["tmp_name"], $targetFile)) {
-        echo "The file " . basename($_FILES["image"]["name"]) . " has been uploaded.";
-      } else {
-        echo "Sorry, there was an error uploading your file.";
-      }
-    }
-
     if ($data_dupa = $this->getDupaBy('nama_dupa', $data['nama_dupa'])) {
       var_dump("Dupa Sudah Ditambahkan");
     }else {
-      $query = 'INSERT INTO dupa (nama_dupa, image, harga_dupa, deskripsi) VALUES (:nama_dupa, :image,  :harga_dupa, :deskripsi)';
+
+      //to find image location
+      //$folderimage = __DIR__.DIRECTORY_SEPARATOR.'..'.DIRECTORY_SEPARATOR.'assets'.DIRECTORY_SEPARATOR.'img'.$data['image']['name'];
+      //move_uploaded_file($data['image']['tmp_name'], $folderimage);
+
+      $query = 'INSERT INTO dupa (nama_dupa, harga_dupa, deskripsi) VALUES (:nama_dupa, :harga_dupa, :deskripsi)';
 
       $this->db->query($query);
       $this->db->bind('nama_dupa', $data['nama_dupa']);
-      $this->db->bind('image', $_FILES['image']["name"]);
+      //$this->db->bind('image', $data['image']);
       $this->db->bind('harga_dupa', $data['harga_dupa']);
       $this->db->bind('deskripsi', $data['deskripsi']);
       $this->db->execute();

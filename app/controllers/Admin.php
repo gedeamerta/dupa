@@ -35,7 +35,6 @@ class Admin extends Controller
       $this->view('admin/index');
       $this->view('templates/footer-admin');
     }else {
-      $data['image_single'] = $this->model('Admin_model')->getAllAdmin();
       $data['dupa'] = $this->model('Admin_model')->getAllDupa();
       $this->view('templates/_sidebar', $data);
       $this->view('templates/_header', $data);
@@ -96,11 +95,11 @@ class Admin extends Controller
   {
     if ($this->model('Admin_model')->hapusDupa($id) > 0) {
       Flasher::setFlash('berhasil', 'dihapus', 'success');
-      header('Location: '. BASEURL . '/admin/dashboard');
+      header('Location: '. BASEURL . '/admin/dashboard2');
       exit;
     }else {
       Flasher::setFlash('gagal', 'dihapus', 'danger');
-      header('Location: '. BASEURL . '/admin/dashboard');
+      header('Location: '. BASEURL . '/admin/dashboard2');
       exit;
     }
   }
