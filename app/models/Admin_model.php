@@ -9,7 +9,7 @@ class Admin_model
     $this->db = new Database;
   }
 
-  public function getUserBy($param, $value)
+  public function getAdminBy($param, $value)
   {
     if (isset($param) && isset($value)) {
       $data_user = "SELECT * FROM admin WHERE $param = :$param ";
@@ -43,9 +43,11 @@ class Admin_model
     return $this->db->resultSet();
   }
 
-  public function getAdmin()
+  // it has been get id from url(idk what iam doin this hope tomorrow i got some inspiration)
+  public function getAdminId($id)
   {
-    $this->db->query("SELECT * FROM admin");
+    $this->db->query("SELECT * FROM admin WHERE id=:id");
+    $this->db->bind('id', $id);
     return $this->db->single();
   }
 
@@ -103,7 +105,7 @@ class Admin_model
 
 
     //first check it out if there is an email on database, and if empty email go to register progress
-    if ($data_user = $this->getUserBy("email", $email)) {
+    if ($data_user = $this->getAdminBy("email", $email)) {
       var_dump('email sudah ada');
       header("Location: ". BASEURL . "/admin/dashboard");
     }else {
@@ -140,15 +142,12 @@ class Admin_model
   {
     $username = $data['username'];
     $password = $data['password']; //password yg di input user
-
-    if (isset($username) && $username !== "") {
       
-      //mengquery terlebih dahulu
-      if ($data_user = $this->getUserBy('username', $username)){
+      if ($data_user = $this->getAdminBy('username', $username)){
         $password_user = $data_user['password'];  //password di database
 
         if (password_verify($password, $password_user) || $password === $password_user) {
-            $_SESSION['username'] = $username;
+            $_SESSION['id'] = $data_user['id'];
             $_SESSION['login'] = 'login';
             echo "berhasil";
             return true;
@@ -157,7 +156,6 @@ class Admin_model
             return false;
           }
         }
-      }
     }
 
   public function tambahDupa($data)

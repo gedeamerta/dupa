@@ -1,55 +1,28 @@
-<div class="dupa-index">
-  <button class="uk-button uk-button-secondary uk-margin-small-right tombolTambahData" type="button" uk-toggle="target: #formModal">Tambah Data</button>
+        <!-- main panel -->
+        <div class="main-panel">
+          <div class="uk-child-width-1-3@m uk-grid-small uk-grid-match" uk-grid>
+            <?php foreach ($data['dupa'] as $dupa) : ?>
+              <div>
+                <div class="uk-card uk-card-default uk-card-body">
+                  <h3 class="uk-card-title"><?= $dupa['nama_dupa']; ?><br></h3>
+                  <h4>Rp. <?= number_format($dupa['harga_dupa'], 0, ",", "."); ?></h4>
+                  <p><?= $dupa['deskripsi']; ?></p>
 
-  <form class="uk-search uk-search-default uk-margin" action="<?= BASEURL; ?>/admin/cari" method="post">
-    <span uk-search-icon></span>
-    <input class="uk-search-input" type="search" name="keyword" id="keyword" placeholder="Search...">
-  </form>
-
-  <h1 class="uk-text-center">Daftar Dupa</h1>
-    <?php Flasher::flash(); ?>
-
-    <!-- This is start the modal -->
-    <div id="formModal" uk-modal>
-        <div class="uk-modal-dialog uk-modal-body ubahData">
-            <h2 id="formModalLabel" class="uk-modal-title">Masukan Data Dupa</h2>
-            <form class="uk-grid-small" action="<?= BASEURL; ?>/admin/tambah" method="post" uk-grid>
-                <input type="hidden" id="id" name="id">
-                <div class="uk-inline uk-width-1-2@s">
-                    <input class="uk-input" type="text" name="nama_dupa" value="" id="email" placeholder="Nama Dupa" required>
+                  <a href="<?= BASEURL; ?>/admin/hapus/<?= $dupa['id']; ?>" class="uk-button uk-button-danger uk-float-right uk-margin-left" onclick="return confirm('yakin ?')">Hapus</a>
+                  <!-- <a href="<?= BASEURL; ?>/admin/ubah/<?= $dupa['id']; ?>" uk-toggle="target: #formModal" class="uk-button uk-button-secondary uk-float-right uk-margin-left tampilModalUbah" data-id="<?= $dupa['id']; ?>">Ubah</a> -->
                 </div>
+              </div>
+            <?php endforeach; ?>
+          </div>
 
-                <div class="uk-inline uk-width-1-2@s">
-                    <input class="uk-input" type="number" name="harga_dupa" value="" id="nama"  placeholder="Rp. Harga" required>
-                </div>
-
-                <div class="uk-inline uk-width-1-2@s">
-                    <input class="uk-input" type="text" name="deskripsi" value="" id="nama"  placeholder="Deskripsi Produk" required>
-                </div>
-
-                <p class="uk-text-right tombolSubmit">
-                  <button style="margin-right: 10px;" class="uk-button uk-button-default uk-modal-close" type="button">Cancel</button>
-                  <button class="uk-button uk-button-primary" type="submit">Save</button>
-                </p>
-
-          </form>
+          <footer class="footer">
+            <div class="d-sm-flex justify-content-center justify-content-sm-between">
+              <span class="text-muted text-center text-sm-left d-block d-sm-inline-block">Copyright © 2020 <a href="https://www.bootstrapdash.com/" target="_blank">BootstrapDash</a>. All rights reserved.</span>
+              <span class="float-none float-sm-right d-block mt-1 mt-sm-0 text-center">Hand-crafted & made with <i class="mdi mdi-heart text-danger"></i></span>
+            </div>
+          </footer>
         </div>
-      </div>
-      <!-- This is end modal -->
-
-    <div class="uk-child-width-1-3@m uk-grid-small uk-grid-match" uk-grid>
-      <?php foreach ($data['dupa'] as $dupa) : ?>
-        <div>
-           <div class="uk-card uk-card-default uk-card-body">
-             <h3 class="uk-card-title"><?= $dupa['nama_dupa']; ?><br></h3>
-             <h4>Rp. <?= $dupa['harga_dupa']; ?></h4>
-             <p><?= $dupa['deskripsi']; ?></p>
-
-             <a href="<?= BASEURL; ?>/admin/hapus/<?= $dupa['id']; ?>" class="uk-button uk-button-danger uk-float-right uk-margin-left" onclick="return confirm('yakin ?')">Hapus</a>
-             <!-- <a href="<?= BASEURL; ?>/admin/ubah/<?= $dupa['id']; ?>" uk-toggle="target: #formModal" class="uk-button uk-button-secondary uk-float-right uk-margin-left tampilModalUbah" data-id="<?= $dupa['id']; ?>">Ubah</a> -->
-           </div>
-         </div>
-      <?php endforeach; ?>
-    </div>
-    
-</div>
+        <!-- main-panel ends -->
+        </div>
+        <!-- page-body-wrapper ends -->
+        </div>

@@ -2,13 +2,6 @@
 class Admin extends Controller
 {
 
-  private $db;
-
-  public function __construct()
-  {
-    $this->db = new Database;
-  }
-
   public function index()
   {
     if (!isset($_POST['login'])) {
@@ -18,7 +11,7 @@ class Admin extends Controller
       $this->view('templates/footer-admin');
     }else {
       if ($this->model('Admin_model')->login($_POST) > 0) {
-        header('Location:'. BASEURL .'/admin/dashboard2');
+        header('Location:'. BASEURL .'/admin/dashboard');
       }else {
         var_dump('gagal');
         Flasher::setErrorLogin('Invalid Username or Password');
@@ -27,7 +20,7 @@ class Admin extends Controller
     }
   }
 
-  public function dashboard2()
+  public function dashboard()
   {
     if (!isset($_SESSION['login'])) {
       $data['judul'] = 'Login';
@@ -36,9 +29,10 @@ class Admin extends Controller
       $this->view('templates/footer-admin');
     }else {
       $data['dupa'] = $this->model('Admin_model')->getAllDupa();
+      $data['admin_single'] = $this->model('Admin_model')->getAdminId($_SESSION['id']);
       $this->view('templates/_sidebar', $data);
       $this->view('templates/_header', $data);
-      $this->view('admin/dashboard2', $data);
+      $this->view('admin/dashboard', $data);
       $this->view('templates/_footer');
     }
   }
@@ -50,20 +44,6 @@ class Admin extends Controller
     $this->view('admin/forms');
     $this->view('templates/_footer');
   }
-
-  // public function dashboard()
-  // {
-  //   if (!isset($_SESSION['login'])) {
-  //     header("Location: ". BASEURL . "/admin/index");
-  //   }else {
-  //     $data['judul'] = 'Dashboard';
-  //     $data['dupa'] = $this->model('Admin_model')->getAllDupa();
-  //     $this->view("templates/header-dashboard-admin", $data);
-  //     $this->view("admin/dashboard", $data);
-  //     $this->view("templates/footer-admin");
-  //     exit;
-  //   }
-  // }
 
   public function addAdmin()
   {
@@ -95,11 +75,11 @@ class Admin extends Controller
   {
     if ($this->model('Admin_model')->hapusDupa($id) > 0) {
       Flasher::setFlash('berhasil', 'dihapus', 'success');
-      header('Location: '. BASEURL . '/admin/dashboard2');
+      header('Location: '. BASEURL . '/admin/dashboard');
       exit;
     }else {
       Flasher::setFlash('gagal', 'dihapus', 'danger');
-      header('Location: '. BASEURL . '/admin/dashboard2');
+      header('Location: '. BASEURL . '/admin/dashboard');
       exit;
     }
   }
