@@ -39,8 +39,9 @@ class Admin extends Controller
 
   public function forms()
   {
-    $this->view('templates/_sidebar');
-    $this->view('templates/_header');
+    $data['admin_single'] = $this->model('Admin_model')->getAdminId($_SESSION['id']);
+    $this->view('templates/_sidebar', $data);
+    $this->view('templates/_header', $data);
     $this->view('admin/forms');
     $this->view('templates/_footer');
   }
