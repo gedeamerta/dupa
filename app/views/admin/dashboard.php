@@ -5,6 +5,7 @@
               <div>
                 <div class="uk-card uk-card-default uk-card-body">
                   <h3 class="uk-card-title"><?= $dupa['nama_dupa']; ?><br></h3>
+                  <img src="<?= BASEURL . "/assets/img/" . $dupa["image"]; ?>" class="card-img-top" alt="...">
                   <h4>Rp. <?= number_format($dupa['harga_dupa'], 0, ",", "."); ?></h4>
                   <p><?= $dupa['deskripsi']; ?></p>
 
