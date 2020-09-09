@@ -20,7 +20,7 @@
               </div>
               <div class="form-group">
                 <label for="exampleInputPassword2">Gambar Dupa</label>
-                <input type="file" class="form-control" name="image" placeholder="Gambar" accept="image/jpeg , image/png"/>
+                <input type="file" class="form-control" name="image" placeholder="Gambar" accept="image/jpeg , image/png" />
               </div>
               <div class="form-group">
                 <label for="exampleInputEmail1">Harga Dupa</label>
@@ -36,6 +36,7 @@
           </div>
         </div>
       </div>
+
 
       <!-- Admin Form -->
       <div class="col-md-6 grid-margin stretch-card">
@@ -63,7 +64,7 @@
               <div class="form-group row">
                 <label for="exampleInputPassword2" class="col-sm-3 col-form-label">Gambar Profile</label>
                 <div class="col-sm-9">
-                  <input type="file" class="form-control" name="image" placeholder="Gambar" accept="image/jpeg , image/png"/>
+                  <input type="file" class="form-control" name="image" placeholder="Gambar" accept="image/jpeg , image/png" />
                 </div>
               </div>
 

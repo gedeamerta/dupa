@@ -160,11 +160,14 @@ class Admin_model
 
   public function tambahDupa($data)
   {
+
+    // Preparation
     $targetDir =  __DIR__ . DIRECTORY_SEPARATOR . ".." . DIRECTORY_SEPARATOR . ".." . DIRECTORY_SEPARATOR . "assets" . DIRECTORY_SEPARATOR . "img" . DIRECTORY_SEPARATOR;
     $targetFile = $targetDir . basename($_FILES["image"]["name"]);
     $extension  = strtolower(pathinfo($targetFile, PATHINFO_EXTENSION));
     $uploadOk   = 1;
 
+    // Lets Check in
     $check = getimagesize($_FILES["image"]["tmp_name"]);
     if ($check !== false) {
       echo "File is an image - " . $check["mime"] . ".";
@@ -179,6 +182,7 @@ class Admin_model
       $uploadOk = 0;
     }
 
+    // Move File
     if ($uploadOk == 0) {
       echo "Sorry, your file was not uploaded.";
     } else {
@@ -225,6 +229,53 @@ class Admin_model
     $this->db->query($query);
     $this->db->bind('keyword', "%$keyword%");
     return $this->db->resultSet();
+  }
+
+  public function updateDupa($data)
+  {
+    $query = 'UPDATE dupa set nama_dupa = :nama_dupa, image = :image, harga_dupa = :harga_dupa, deskripsi = :deskripsi WHERE id = :id';
+
+    // Preparation
+    $targetDir =  __DIR__ . DIRECTORY_SEPARATOR . ".." . DIRECTORY_SEPARATOR . ".." . DIRECTORY_SEPARATOR . "assets" . DIRECTORY_SEPARATOR . "img" . DIRECTORY_SEPARATOR;
+    $targetFile = $targetDir . basename($_FILES["image"]["name"]);
+    $extension  = strtolower(pathinfo($targetFile, PATHINFO_EXTENSION));
+    $uploadOk   = 1;
+
+    // Lets Check in
+    $check = getimagesize($_FILES["image"]["tmp_name"]);
+    if ($check !== false) {
+      echo "File is an image - " . $check["mime"] . ".";
+      $uploadOk = 1;
+    } else {
+      echo "File is not an image.";
+      $uploadOk = 0;
+    }
+
+    if ($extension != "jpg" && $extension != "png" && $extension != "jpeg") {
+      echo "Sorry, only JPG, JPEG, and PNG images are allowed.";
+      $uploadOk = 0;
+    }
+
+    // Move File
+    if ($uploadOk == 0) {
+      echo "Sorry, your file was not uploaded.";
+    } else {
+      if (move_uploaded_file($_FILES["image"]["tmp_name"], $targetFile)) {
+        echo "The file " . basename($_FILES["image"]["name"]) . " has been uploaded.";
+      } else {
+        echo "Sorry, there was an error uploading your file.";
+      }
+    }
+
+    $this->db->query($query);
+    $this->db->bind('nama_dupa', $data['nama_dupa']);
+    $this->db->bind('image', $_FILES['image']["name"]);
+    $this->db->bind('harga_dupa', $data['harga_dupa']);
+    $this->db->bind('deskripsi', $data['deskripsi']);
+    $this->db->bind('id', $data['id']);
+    $this->db->execute();
+    return $this->db->rowCount();
+
   }
 
   public function logout()

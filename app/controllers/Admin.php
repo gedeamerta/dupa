@@ -85,6 +85,24 @@ class Admin extends Controller
     }
   }
 
+  public function update()
+  {
+    echo json_encode($this->model('Admin_model')->getDupa($_POST['id']));
+  }
+
+  public function updateDataDupa()
+  {
+    if ($this->model('Admin_model')->updateDupa($_POST) > 0) {
+      Flasher::setFlash('berhasil', 'diubah', 'success');
+      header('Location: ' . BASEURL . '/admin/dashboard');
+      exit;
+    } else {
+      Flasher::setFlash('gagal', 'diubah', 'danger');
+      header('Location: ' . BASEURL . '/admin/dashboard');
+      exit;
+    }
+  }
+
   public function cari()
   {
     $data['judul'] = 'Daftar Siswa';
