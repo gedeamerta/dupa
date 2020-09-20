@@ -105,7 +105,7 @@ class Admin extends Controller
 
   public function cari()
   {
-    $data['judul'] = 'Daftar Siswa';
+    $data['judul'] = 'Daftar Dupa';
     $data['dupa'] = $this->model('Admin_model')->cariDupa();
     $this->view("templates/header-dashboard-admin", $data);
     $this->view("admin/dashboard", $data);
