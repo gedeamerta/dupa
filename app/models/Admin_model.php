@@ -217,7 +217,6 @@ class Admin_model
     $query = "DELETE FROM dupa WHERE id = :id";
     $this->db->query($query);
     $this->db->bind('id', $id);
-
     $this->db->execute();
     return $this->db->rowCount();
   }
